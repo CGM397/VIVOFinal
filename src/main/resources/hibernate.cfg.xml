@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/yummySystem?characterEncoding=UTF8&amp;serverTimezone=UTC&amp;useSSL=false</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="format_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <!--<property name="current_session_context_class">thread</property>-->
+
+    <mapping class="edu.nju.vivofinal.model.Account"/>
+    <mapping class="edu.nju.vivofinal.model.Address"/>
+    <mapping class="edu.nju.vivofinal.model.CommodityInfo"/>
+    <mapping class="edu.nju.vivofinal.model.CommodityItem"/>
+    <mapping class="edu.nju.vivofinal.model.OrderInfo"/>
+    <mapping class="edu.nju.vivofinal.model.OrderItem"/>
+    <mapping class="edu.nju.vivofinal.model.Customer"/>
+    <mapping class="edu.nju.vivofinal.model.Restaurant"/>
+    <mapping class="edu.nju.vivofinal.model.DiscountInfo"/>
+    <mapping class="edu.nju.vivofinal.model.Modification"/>
+  </session-factory>
+</hibernate-configuration>
