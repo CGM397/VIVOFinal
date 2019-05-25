@@ -23,25 +23,18 @@ public class Customer implements Serializable {
 
     private String phoneNumber;
 
-    private int vipPoints;
-
-    private int vipLevel;
-
     private boolean active;
 
     public Customer() {
     }
 
     public Customer(String customerId, String customerMail, String customerPassword,
-                    String customerName, String phoneNumber,
-                    int vipPoints, int vipLevel, boolean active) {
+                    String customerName, String phoneNumber, boolean active) {
         this.customerId = customerId;
         this.customerMail = customerMail;
         this.customerPassword = customerPassword;
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
-        this.vipPoints = vipPoints;
-        this.vipLevel = vipLevel;
         this.active = active;
     }
 
@@ -83,22 +76,6 @@ public class Customer implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public int getVipPoints() {
-        return vipPoints;
-    }
-
-    public void setVipPoints(int vipPoints) {
-        this.vipPoints = vipPoints;
-    }
-
-    public int getVipLevel() {
-        return vipLevel;
-    }
-
-    public void setVipLevel(int vipLevel) {
-        this.vipLevel = vipLevel;
     }
 
     public boolean isActive() {

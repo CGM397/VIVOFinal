@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -52,7 +52,7 @@ public class CommonServiceImpl implements CommonService {
 
     private int getMaxCustomerId(){
         int maxId = 0;
-        ArrayList<Customer> customers = customerInfoDao.showAllCustomers();
+        List<Customer> customers = customerInfoDao.showAllCustomers();
         if(!customers.isEmpty()) {
             for(Customer one : customers) {
                 int currentId = Integer.parseInt(one.getCustomerId().split("_")[1]);
@@ -65,7 +65,7 @@ public class CommonServiceImpl implements CommonService {
 
     private int getMaxRestaurantId(){
         int maxId = 0;
-        ArrayList<Restaurant> restaurants = restaurantInfoDao.showAllRestaurants();
+        List<Restaurant> restaurants = restaurantInfoDao.showAllRestaurants();
         if(!restaurants.isEmpty()) {
             for(Restaurant one : restaurants) {
                 int currentId = Integer.parseInt(one.getRestaurantId());

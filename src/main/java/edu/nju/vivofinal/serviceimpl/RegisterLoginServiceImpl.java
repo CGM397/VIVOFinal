@@ -11,7 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RegisterLoginServiceImpl implements RegisterLoginService {
@@ -71,7 +71,7 @@ public class RegisterLoginServiceImpl implements RegisterLoginService {
 
     @Override
     public String sendMail(String customerMail) {
-        ArrayList<Customer> customers = customerInfoDao.showAllCustomers();
+        List<Customer> customers = customerInfoDao.showAllCustomers();
         for(Customer one : customers) {
             if(one.getCustomerMail().equals(customerMail))
                 return "duplicate_mail";
@@ -91,7 +91,7 @@ public class RegisterLoginServiceImpl implements RegisterLoginService {
                                     String customerName, String phoneNumber) {
         String customerId = "c_" + commonService.generateId(6,"customer");
         Customer customer = new Customer(customerId, customerMail, customerPassword, customerName,
-                phoneNumber,0,0,true);
+                phoneNumber, true);
         return customerInfoDao.saveCustomerInfo(customer);
     }
 

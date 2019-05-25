@@ -2,16 +2,18 @@ package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.BaseDao;
 import edu.nju.vivofinal.dao.RestaurantInfoDao;
-import edu.nju.vivofinal.model.DiscountInfo;
 import edu.nju.vivofinal.model.Restaurant;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public class RestaurantInfoDaoImpl implements RestaurantInfoDao {
@@ -19,40 +21,20 @@ public class RestaurantInfoDaoImpl implements RestaurantInfoDao {
     @Autowired
     private BaseDao baseDao;
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
     @Override
-    public ArrayList<Restaurant> showAllRestaurants() {
+    public List<Restaurant> showAllRestaurants() {
         ArrayList<Restaurant> res = new ArrayList<>();
         try(Session session = baseDao.getSession()) {
             Transaction transaction = session.beginTransaction();
             String hql = "from Restaurant";
             Query query = session.createQuery(hql);
-            if(query.list().size() > 0)
+            if(!query.list().isEmpty())
                 res = (ArrayList<Restaurant>) query.list();
             transaction.commit();
         }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return res;
-    }
-
-    @Override
-    public ArrayList<DiscountInfo> showDiscountInfo(String restaurantId) {
-        ArrayList<DiscountInfo> res = new ArrayList<>();
-        try(Session session = baseDao.getSession()) {
-            Transaction transaction = session.beginTransaction();
-            String hql = "from DiscountInfo where restaurantId = ?1";
-            Query query = session.createQuery(hql);
-            query.setParameter(1,restaurantId);
-            if(query.list() != null && query.list().size() > 0) {
-                ArrayList<DiscountInfo> store = (ArrayList<DiscountInfo>) query.list();
-                for(DiscountInfo one : store){
-                    if(isEffective(one.getBeginDate(), one.getEndDate()))
-                        res.add(one);
-                }
-            }
-            transaction.commit();
-        }catch (Exception e) {
-            e.printStackTrace();
+            logger.error(new Date().toString() + ": ", e);
         }
         return res;
     }
@@ -75,13 +57,8 @@ public class RestaurantInfoDaoImpl implements RestaurantInfoDao {
             res = session.get(Restaurant.class, restaurantId);
             transaction.commit();
         }catch (Exception e) {
-            e.printStackTrace();
+            logger.error(new Date().toString() + ": ", e);
         }
         return res;
-    }
-
-    private boolean isEffective(Date beginDate, Date endDate){
-        Date now = new Date();
-        return now.after(beginDate) && now.before(endDate);
     }
 }

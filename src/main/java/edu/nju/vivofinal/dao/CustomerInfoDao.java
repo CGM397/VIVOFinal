@@ -2,7 +2,7 @@ package edu.nju.vivofinal.dao;
 
 import edu.nju.vivofinal.model.Customer;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface CustomerInfoDao {
 
@@ -12,5 +12,5 @@ public interface CustomerInfoDao {
 
     Customer findCustomerInfoByMail(String customerMail);
     
-    ArrayList<Customer> showAllCustomers();
+    List<Customer> showAllCustomers();
 }

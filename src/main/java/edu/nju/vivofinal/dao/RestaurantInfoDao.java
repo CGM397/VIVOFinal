@@ -1,15 +1,12 @@
 package edu.nju.vivofinal.dao;
 
-import edu.nju.vivofinal.model.DiscountInfo;
 import edu.nju.vivofinal.model.Restaurant;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface RestaurantInfoDao {
 
-    ArrayList<Restaurant> showAllRestaurants();
-
-    ArrayList<DiscountInfo> showDiscountInfo(String restaurantId);
+    List<Restaurant> showAllRestaurants();
 
     boolean saveRestaurantInfo(Restaurant restaurant);
 

@@ -4,16 +4,21 @@ import edu.nju.vivofinal.dao.BaseDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.Date;
 
 @Repository
 public class BaseDaoImpl implements BaseDao {
 
     @Autowired
     private EntityManagerFactory entityManagerFactory;
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @Override
     public Session getSession() {
@@ -29,7 +34,7 @@ public class BaseDaoImpl implements BaseDao {
             transaction.commit();
             res = true;
         }catch (Exception e) {
-            e.printStackTrace();
+            logger.error(new Date().toString() + ": ", e);
         }
         return res;
     }
@@ -43,7 +48,7 @@ public class BaseDaoImpl implements BaseDao {
             transaction.commit();
             res = true;
         }catch (Exception e) {
-            e.printStackTrace();
+            logger.error(new Date().toString() + ": ", e);
         }
         return res;
     }

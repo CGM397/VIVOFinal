@@ -13,15 +13,7 @@
     <property name="hbm2ddl.auto">update</property>
     <!--<property name="current_session_context_class">thread</property>-->
 
-    <mapping class="edu.nju.vivofinal.model.Account"/>
-    <mapping class="edu.nju.vivofinal.model.Address"/>
-    <mapping class="edu.nju.vivofinal.model.CommodityInfo"/>
-    <mapping class="edu.nju.vivofinal.model.CommodityItem"/>
-    <mapping class="edu.nju.vivofinal.model.OrderInfo"/>
-    <mapping class="edu.nju.vivofinal.model.OrderItem"/>
     <mapping class="edu.nju.vivofinal.model.Customer"/>
     <mapping class="edu.nju.vivofinal.model.Restaurant"/>
-    <mapping class="edu.nju.vivofinal.model.DiscountInfo"/>
-    <mapping class="edu.nju.vivofinal.model.Modification"/>
   </session-factory>
 </hibernate-configuration>
