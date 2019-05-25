@@ -11,14 +11,14 @@ import java.io.IOException;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/login")
-    public String login(){
-        return "login";
+    @RequestMapping("/cstlogin")
+    public String cstLogin(){
+        return "login/cstLogin";
     }
 
-    @RequestMapping("/register")
-    public String register(){
-        return "register";
+    @RequestMapping("/rstlogin")
+    public String retLogin(){
+        return "login/rstLogin";
     }
 
     @RequestMapping("/customer-home")
@@ -28,6 +28,6 @@ public class IndexController {
             response.sendRedirect("/login");
             return null;
         }
-        return "customer-home";
+        return "customer/cstHome";
     }
 }
