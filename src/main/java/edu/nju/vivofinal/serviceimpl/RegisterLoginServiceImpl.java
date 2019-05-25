@@ -1,4 +1,4 @@
-package edu.nju.vivofinal.serviceImpl;
+package edu.nju.vivofinal.serviceimpl;
 
 import edu.nju.vivofinal.dao.CustomerInfoDao;
 import edu.nju.vivofinal.dao.RestaurantInfoDao;
@@ -25,36 +25,47 @@ public class RegisterLoginServiceImpl implements RegisterLoginService {
     @Autowired
     private RestaurantInfoDao restaurantInfoDao;
 
+    private static final String WRONG = "wrong_password";
+
+    private static final String SUCCESS = "success";
+
     @Override
     public String login(String identity, String account, String password) {
         String res = "";
-        if(identity.equals("顾客")){
-            Customer customer = customerInfoDao.findCustomerInfoByMail(account);
-            if(customer == null || customer.getCustomerPassword() == null)
-                res = "wrong_password";
-            else if(customer.getCustomerPassword().equals(password)) {
-                if(customer.isActive())
-                    res = "success";
-                else
-                    res = "not_active";
-            }
-            else
-                res = "wrong_password";
-        }else if(identity.equals("餐厅")){
-            Restaurant restaurant = restaurantInfoDao.findRestaurantInfoById(account);
-            if(restaurant == null || restaurant.getRestaurantPassword() == null)
-                res = "wrong_password";
-            else if(restaurant.getRestaurantPassword().equals(password)) {
-                res = "success";
-            }
-            else
-                res = "wrong_password";
-        }else if(identity.equals("经理")){
-            if(account.equals("admin") && password.equals("000000"))
-                res = "success";
-            else
-                res = "wrong_password";
+        if(identity.equals("顾客")) {
+            res = customerLoginCheck(account, password);
+        }else if(identity.equals("餐厅")) {
+            res = restaurantLoginCheck(account, password);
         }
+        return res;
+    }
+
+    private String customerLoginCheck(String account, String password){
+        String res;
+        Customer customer = customerInfoDao.findCustomerInfoByMail(account);
+        if(customer == null || customer.getCustomerPassword() == null)
+            res = WRONG;
+        else if(customer.getCustomerPassword().equals(password)) {
+            if(customer.isActive())
+                res = SUCCESS;
+            else
+                res = "not_active";
+        }
+        else
+            res = WRONG;
+        return res;
+    }
+
+    private String restaurantLoginCheck(String account, String password){
+        String res;
+        Restaurant restaurant = restaurantInfoDao.findRestaurantInfoById(account);
+        if(restaurant == null || restaurant.getRestaurantPassword() == null)
+            res = WRONG;
+        else if(restaurant.getRestaurantPassword().equals(password)) {
+            res = SUCCESS;
+        }
+        else
+            res = WRONG;
         return res;
     }
 

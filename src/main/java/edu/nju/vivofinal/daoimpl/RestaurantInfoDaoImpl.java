@@ -1,4 +1,4 @@
-package edu.nju.vivofinal.daoImpl;
+package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.BaseDao;
 import edu.nju.vivofinal.dao.RestaurantInfoDao;

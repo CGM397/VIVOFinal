@@ -14,13 +14,13 @@ public class RegisterLoginController {
     @Autowired
     private RegisterLoginService registerLoginService;
 
-    @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
+    @PostMapping(value = "/sendMail")
     @ResponseBody
     public String sendMail(@RequestParam String customerMail){
         return registerLoginService.sendMail(customerMail);
     }
 
-    @RequestMapping(value = "/customerRegister", method = RequestMethod.POST)
+    @PostMapping(value = "/customerRegister")
     @ResponseBody
     public boolean customerRegister(@RequestParam String customerMail,
                                     @RequestParam String customerPassword,
@@ -30,14 +30,14 @@ public class RegisterLoginController {
                 customerName, phoneNumber);
     }
 
-    @RequestMapping(value = "/restaurantRegister", method = RequestMethod.POST)
+    @PostMapping(value = "/restaurantRegister")
     @ResponseBody
     public String restaurantRegister(@RequestParam String restaurantName,
                                       @RequestParam String restaurantPassword){
         return registerLoginService.restaurantRegister(restaurantName, restaurantPassword);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping(value = "/login")
     @ResponseBody
     public String login(@RequestParam String identity, @RequestParam String account,
                         @RequestParam String password, HttpServletRequest request){
@@ -50,7 +50,7 @@ public class RegisterLoginController {
         return res;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @PostMapping(value = "/logout")
     @ResponseBody
     public boolean logout(HttpServletRequest request){
         boolean res = false;

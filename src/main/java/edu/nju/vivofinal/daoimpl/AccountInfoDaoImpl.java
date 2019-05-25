@@ -1,4 +1,4 @@
-package edu.nju.vivofinal.daoImpl;
+package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.AccountInfoDao;
 import edu.nju.vivofinal.dao.BaseDao;
@@ -32,7 +32,7 @@ public class AccountInfoDaoImpl implements AccountInfoDao {
             }
             transaction.commit();
         }catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return res;
     }
