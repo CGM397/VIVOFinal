@@ -140,8 +140,8 @@
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input class="col-xs-12 col-sm-8" type="text" name="teacherName" id="teacherName"/>
-                                                                    <button id="bind" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:2px;">绑定教师</button>
+                                                                    <input th:value="${teacherName}" class="col-xs-12 col-sm-8" type="text" name="teacherName" id="teacherName"/>
+                                                                    <button th:if="${teacherName=='无'}" id="bind" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:2px;">绑定教师</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -212,7 +212,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="addAddressSureBut">确定</button>
+                <button type="button" class="btn btn-primary" id="bindSureButton">确定</button>
             </div>
         </div>
     </div>
@@ -233,18 +233,36 @@
     }
 
     function bind(email){
+        console.log(2);
         $.ajax({
             type: 'POST',
-            url: "parent/update",
+            url: "parent/applyToJoinClass",
             data:{
-                email:
-            }
+                teacherMail:email
+            },
             success:function(result) {
-                if(result=true) {
-                    window.location.reload();
+                if(result==true) {
+                    bootbox.alert("绑定申请已发送");
                 }else{
-                    bootbox.alert("该学号已注册！");
+                    bootbox.alert("不存在该教师");
                 }
+                $("#myModal").modal("hide");
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    }
+    function checkTeacherNameByEmail(email){
+        $.ajax({
+            type: 'POST',
+            url: "teacher/findNameByMail",
+            data:{
+                teacherMail:email
+            },
+            success:function(result) {
+                document.getElementById("teacherName2").innerText=result;
+                console.log(result);
             },
             error: function (result) {
                 bootbox.alert("error!");
@@ -253,15 +271,14 @@
     }
 </script>
 <script type="text/javascript">
-    $("#bindSureBut").click(function (){
+    $("#bindSureButton").click(function (){
         var teacherEmail = $("#teacherEmail").val();
-        var teacherName = $("#teacherName2").val();
-        if(teacherName!="无"){
-            bind(teacherEmail);
-            $("#myModal").modal("hide");
-        }
+        bind(teacherEmail);
     });
 
+    $("#teacherEmail").bind("input propertychange",function(event){
+        checkTeacherNameByEmail($("#teacherEmail").val());
+    });
 
     $('#validation-form').validate({
         errorElement: 'div',

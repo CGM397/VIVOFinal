@@ -7,6 +7,8 @@ import edu.nju.vivofinal.statistics.StudentScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/parent")
 public class ParentController {
@@ -30,8 +32,9 @@ public class ParentController {
 
     @PostMapping(value = "/applyToJoinClass")
     @ResponseBody
-    public boolean applyToJoinClass(@RequestParam String parentMail, @RequestParam String teacherMail) {
-        return parentInfoService.applyToJoinClass(parentMail, teacherMail);
+    public boolean applyToJoinClass(@RequestParam String teacherMail, HttpServletRequest request) {
+        String email = (String)request.getSession(true).getAttribute("email");
+        return parentInfoService.applyToJoinClass(email, teacherMail);
     }
 
     @PostMapping(value = "/agreeApplication")
