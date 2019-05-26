@@ -75,11 +75,24 @@
                                                     <div class="col-xs-12 col-sm-8">
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-email">邮箱</label>
+                                                            <label class="col-sm-4 control-label no-padding-right" for="parentMail">邮箱</label>
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${customer.email}" class="col-xs-12 col-sm-8" type="email" name="email" id="form-field-email" readonly/>
+                                                                    <input th:value="${parent.parentMail}" class="col-xs-12 col-sm-8" type="email" name="parentMail" id="parentMail" readonly/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="space-4"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="parentPassword">密码</label>
+
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input th:value="${parent.parentPassword}" class="col-xs-12 col-sm-8" type="password" name="parentPassword" id="parentPassword" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -87,11 +100,11 @@
                                                         <div class="space-4"></div>
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-name">姓名</label>
+                                                            <label class="col-sm-4 control-label no-padding-right" for="parentName">姓名</label>
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${customer.name}" class="col-xs-12 col-sm-8" type="text" name="name" id="form-field-name"/>
+                                                                    <input th:value="${parent.parentName}" class="col-xs-12 col-sm-8" type="text" name="parentName" id="parentName"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -99,11 +112,11 @@
                                                         <div class="space-4"></div>
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-pass">密码</label>
+                                                            <label class="col-sm-4 control-label no-padding-right" for="studentId">学生学号</label>
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${customer.password}" class="col-xs-12 col-sm-8" type="password" name="password" id="form-field-pass" />
+                                                                    <input th:value="${parent.studentId}" class="col-xs-12 col-sm-8" type="text" name="studentId" id="studentId"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -111,26 +124,16 @@
                                                         <div class="space-4"></div>
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-level">级别</label>
+                                                            <label class="col-sm-4 control-label no-padding-right" for="studentName">学生姓名</label>
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${level}" class="col-xs-12 col-sm-8" type="text" name="level" id="form-field-level" readonly/>
+                                                                    <input th:value="${parent.studentName}" class="col-xs-12 col-sm-8" type="text" name="studentName" id="studentName"/>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="space-4"></div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-balance">余额</label>
-
-                                                            <div class="col-sm-8">
-                                                                <div class="clearfix">
-                                                                    <input th:value="${#numbers.formatDecimal(customer.balance,1,2)}" class="col-xs-12 col-sm-8" type="text" name="level" id="form-field-balance" readonly/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -142,26 +145,10 @@
                                                     <div class="col-xs-12 col-sm-8">
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-phone">电话</label>
-
+                                                            <label class="col-sm-4 control-label no-padding-right" for="parentPhone">电话</label>
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${customer.phone}" class="col-xs-12 col-sm-8" type="text" name="phone" id="form-field-phone" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="space-4"></div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label no-padding-right" for="form-field-select">地址</label>
-
-                                                            <div class="col-sm-8">
-                                                                <div class="clearfix">
-                                                                    <select name="addresses" class="col-xs-12 col-sm-8" id="form-field-select">
-                                                                        <option th:each="address:*{customer.addresses}" th:text="${address}"></option>
-                                                                    </select>
-                                                                    <button id="addAddress" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:2px;">添加地址</button>
+                                                                    <input th:value="${parent.parentPhone}" class="col-xs-12 col-sm-8" type="text" name="parentPhone" id="parentPhone" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -200,7 +187,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="addAddressTitle">添加地址</h4>
+                <h4 class="modal-title" id="addAddressTitle">绑定教师</h4>
             </div>
             <div class="modal-body">
                 <form id="addressForm">
@@ -216,32 +203,18 @@
         </div>
     </div>
 </div>-->
-<input th:value="${customer.id}" id="id" type="text" style="display:none;"/>
-<input th:value="${#numbers.formatDecimal(customer.consumption,1,2)}" id="consumption" type="text" style="display:none;"/>
-<input th:value="${#numbers.formatDecimal(customer.balance,1,2)}" id="balance" type="text" style="display:none;"/>
 <div th:include="parent/parent-common::commonFooter"></div>
 <script th:src="@{static/js/jquery.validate.min.js}"></script>
 </body>
 <script th:inline="javascript">
-    function Customer(id,email,password,name,phone,isActive,isWrittenOff,addresses,consumption,balance){
-        this.id=id;
-        this.email=email;
-        this.password=password;
-        this.name=name;
-        this.phone=phone;
-        this.isActive=isActive;
-        this.isWrittenOff=isWrittenOff;
-        this.addresses=addresses;
-        this.consumption=consumption;
-        this.balance=balance;
-    }
-    function getAddresses(){
-        var addresses=[];
-        var options=document.getElementById("form-field-select").options;
-        for(var i=0;i<options.length;i++){
-            addresses.push(options[i].innerHTML);
-        }
-        return addresses;
+    function Parent(id,email,password,name,phone,studentId,studentName){
+        this.parentId=id;
+        this.parentEmail=email;
+        this.parentPassword=password;
+        this.parentName=name;
+        this.parentPhone=phone;
+        this.studentId=studentId;
+        this.studentName=studentName;
     }
 </script>
 <script type="text/javascript">
@@ -260,37 +233,54 @@
         focusInvalid: false,
         onclick:true,
         rules: {
-            email: {
+            parentMail: {
                 required: true,
                 email:true
             },
-            name: {
+            parentPassword: {
+                required: true,
+                minlength: 6
+            },
+            parentName: {
                 required: true,
                 minlength:2
             },
-            phone: {
+            parentPhone: {
                 required: true,
                 digits:true,
                 minlength:5
             },
-            password: {
+            studentName: {
                 required: true,
-                minlength: 6
+                minlength:2
             },
+            studentId:{
+                student: true,
+                minlength:5
+            }
         },
         messages: {
-            email: {
+            parentMail: {
                 required: "Please provide a valid email.",
                 email: "Please provide a valid email."
             },
-            name:{
-                required: "Please provide a name."
+            parentName:{
+                required: "Please provide a name.",
+                minlength: "Please provide a valid name."
             },
-            phone:{
+            parentPhone:{
                 required: "Please provide a phone.",
                 minlength: "Please provide a valid phone.",
                 digits: "Please provide a valid phone."
-            }
+            },
+            studentId:{
+                required: "Please provide an ID",
+                minlength: "Please provide a valid ID."
+            },
+            studentName:{
+                required: "Please provide a name.",
+                minlength: "Please provide a valid name."
+            },
         },
         invalidHandler: function (event, validator) { //display error alert on form submit
             $('.alert-danger', $('.login-form')).show();
@@ -328,21 +318,20 @@
         if(!$("#validation-form").valid()){
             return;
         }
-        var id=document.getElementById("id").value;
-        var email=document.getElementById("form-field-email").value;
-        var password=document.getElementById("form-field-pass").value;
-        var name=document.getElementById("form-field-name").value;
-        var phone=document.getElementById("form-field-phone").value;
-        var addresses=getAddresses();
-        var consumption=document.getElementById("consumption").value;
-        var balance=document.getElementById("balance").value;
-        var customer=new Customer(id,email,password,name,phone,true,true,addresses,consumption,balance);
-        var basePath = "http:\/\/localhost:8080\/yummy";
+        var id=document.getElementById("parentId").value;
+        var email=document.getElementById("parentId").value;
+        var password=document.getElementById("parentId").value;
+        var name=document.getElementById("parentId").value;
+        var phone=document.getElementById("parentId").value;
+        var studentId=document.getElementById("studentId").value;
+        var studentName=document.getElementById("studentName").value;
+
+        var parent=new Parent(id,email,password,name,phone,studentId,studentName);
         $.ajax({
             type: 'POST',
-            url: "/yummy/customer/update",
+            url: "parent/update",
             contentType: "application/json",
-            data: JSON.stringify(customer),
+            data: JSON.stringify(parent),
             success:function(result) {
                 window.location.reload();
             },

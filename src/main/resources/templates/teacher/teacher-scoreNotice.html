@@ -28,33 +28,32 @@
                         <a href="/teacherHome">主页</a>
                     </li>
 
-                    <li class="active">通知发送</li>
+                    <li class="active">成绩通知</li>
                 </ul>
             </div>
 
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        通知发送
+                        发送成绩通知
                     </h1>
                 </div><!-- /.page-header -->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="alert alert-block alert-success">
-                            <button type="button" class="close" data-dismiss="alert">
-                                <i class="icon-remove"></i>
-                            </button>
-
-                            <i class="icon-ok green"></i>
-
-                            使用
-                            <strong class="green">
-                                通知发送功能
-                                <small>(v1.0)</small>
-                            </strong>
+                <div>
+                    <h3>考试时间：</h3>
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-11">
+                            <div class="input-group">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+                                <span class="input-group-addon">
+                                    <i class="icon-calendar bigger-110"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     </div>
@@ -64,5 +63,7 @@
     </a>
 </div>
 <div th:include="parent/parent-common::commonFooter"></div>
+<script type="text/javascript" th:src="@{/static/js/jquery-2.0.3.min.js}"></script>
+<script th:src="@{/static/js/ace.min.js}"></script>
 </body>
 </html>

@@ -42,7 +42,7 @@ public class RegisterLoginController {
         String res = registerLoginService.login(identity, account, password);
         HttpSession session = request.getSession(true);
         if(res.equals("success"))
-            session.setAttribute("userAccount", account);
+            session.setAttribute("email", account);
         else
             session.invalidate();
         return res;

@@ -66,6 +66,14 @@ public class IndexController {
         return "teacher/teacher-statistics";
     }
 
+    @RequestMapping("/teacherCommonNotice")
+    public String teacherCommonNotice(){
+        return "teacher/teacher-commonNotice";
+    }
 
+    @RequestMapping("/teacherScoreNotice")
+    public String teacherScoreNotice(){
+        return "teacher/teacher-scoreNotice";
+    }
 
 }
