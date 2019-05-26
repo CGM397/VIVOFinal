@@ -4,6 +4,7 @@
 </head>
 <link rel="stylesheet" th:href="@{static/css/datepicker.css}" />
 <link rel="stylesheet" th:href="@{static/css/jquery-ui-1.10.3.full.min.css}" />
+<script src="../../static/js/xlsx.core.min.js"></script>
 <body>
 <div th:include="teacher/teacher-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
 <div class="main-container" id="main-container">
@@ -40,24 +41,8 @@
                         发送成绩通知
                     </h1>
                 </div><!-- /.page-header -->
-                                <div class="col-xs-12">
-                                    <!-- PAGE CONTENT BEGINS -->
-
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="widget-box">
                                                 <div class="widget-header">
                                                     <h4>提交课程成绩</h4>
-
-                                                    <span class="widget-toolbar">
-														<a href="#" data-action="collapse">
-															<i class="icon-chevron-up"></i>
-														</a>
-
-														<a href="#" data-action="close">
-															<i class="icon-remove"></i>
-														</a>
-													</span>
                                                 </div>
 
                                                 <div class="widget-body">
@@ -70,17 +55,14 @@
                                                             <span style="font-size: 18px">考试时间：</span>
                                                             <input id="time" type="date" class="form-control" placeholder="考试时间" >
                                                         </div>
+                                                        <span style="font-size: 18px">成绩单（xlsx文件）：</span>
                                                         <input multiple="" type="file" id="id-input-file-3"/>
                                                     </div>
                                                     <button class="btn-block btn btn-primary" onclick="importf()">确定提交</button>
                                                 </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div id="demo"></div>
 
-                </div><!-- /.main-container-inner -->
             </div>
         </div>
     </div>
@@ -92,6 +74,97 @@
 
 
 <div th:include="parent/parent-common::commonFooter"></div>
+
+<!-- 读文件r -->
+<script>
+    /*
+    FileReader共有4种读取方法：
+    1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+    2.readAsBinaryString(file)：将文件读取为二进制字符串
+    3.readAsDataURL(file)：将文件读取为Data URL
+    4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+                 */
+    var wb;//读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+
+    function importf() {//导入
+        var score;
+        var obj = document.getElementById('id-input-file-3');
+        if(!obj.files) {
+            return;
+        }
+        var f = obj.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var data = e.target.result;
+            if(rABS) {
+                wb = XLSX.read(btoa(fixdata(data)), {//手动转化
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+            //wb.Sheets[Sheet名]获取第一个Sheet的数据
+            document.getElementById("demo").innerHTML= JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) );
+            score=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+            scoreFinal=[];
+            for(var i=0;i<score.length;i++){
+                if('学生ID' in score[i]) {
+                    scoreFinal[i] = {'studentId':score[i]['学生ID']};
+                }
+                else if('ID' in score[i]) {
+                    scoreFinal[i] = {'studentId':score[i]['ID']};
+                }
+                else if('id' in score[i]) {
+                    scoreFinal[i] = {'studentId':score[i]['id']};
+                }
+                scoreFinal[i]['examScore'] = score[i]['成绩'];
+            }
+            //这就是最终数据
+            var result={};
+            result['examName']=document.getElementById('lesson').value;
+            result['examTime']=document.getElementById('time').value;
+            result['items'] =scoreFinal;
+            alert(JSON.stringify(result));
+
+            //调用ajax传给后端
+            upLoadScoreAjax(result);
+            return result;
+        };
+        if(rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    }
+
+
+    function upLoadScoreAjax(score) {
+        $.ajax({ url: "/Restaurant/Inform", dataType:"text" ,data:score,type:"POST",timeout:3000, success: function(data){
+            alert("发布成功");
+            }
+            ,error:function (XMLHttpRequest, textStatus, errorThrown) {
+                if(textStatus==408){
+                    alert("请求超时");
+                }
+                else {
+                    alert("请求失败")
+                }
+            }});
+    }
+
+    function fixdata(data) { //文件流转BinaryString
+        var o = "",
+            l = 0,
+            w = 10240;
+        for(; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+</script>
 <script th:src="@{static/js/jquery-ui-1.10.3.full.min.js}"></script>
 <script th:src="@{static/js/date-time/bootstrap-datepicker.min.js}"></script>
 <script>
