@@ -5,7 +5,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/yummySystem?characterEncoding=UTF8&amp;serverTimezone=UTC&amp;useSSL=false</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vivoFinal?characterEncoding=UTF8&amp;serverTimezone=UTC&amp;useSSL=false</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
@@ -13,7 +13,9 @@
     <property name="hbm2ddl.auto">update</property>
     <!--<property name="current_session_context_class">thread</property>-->
 
-    <mapping class="edu.nju.vivofinal.model.Customer"/>
-    <mapping class="edu.nju.vivofinal.model.Restaurant"/>
+    <mapping class="edu.nju.vivofinal.model.Teacher"/>
+    <mapping class="edu.nju.vivofinal.model.Parent"/>
+    <mapping class="edu.nju.vivofinal.model.ExamScore"/>
+    <mapping class="edu.nju.vivofinal.model.ScoreItem"/>
   </session-factory>
 </hibernate-configuration>
