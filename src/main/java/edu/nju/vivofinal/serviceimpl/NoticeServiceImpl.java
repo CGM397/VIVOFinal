@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -30,6 +31,8 @@ public class NoticeServiceImpl implements NoticeService {
     @Autowired
     private SpecificNoticeDao specificNoticeDao;
 
+    private static final String FROM_MAIL = "980231201@qq.com";
+
     @Override
     public boolean sendCommonNotice(long teacherId, String title, String context) {
         ArrayList<Parent> parents =
@@ -40,7 +43,7 @@ public class NoticeServiceImpl implements NoticeService {
             storeMails[i] = parents.get(i).getParentMail();
         }
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("980231201@qq.com");
+        message.setFrom(FROM_MAIL);
         message.setTo(storeMails);
         message.setSubject(title);
         message.setText(context);
@@ -51,11 +54,11 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public boolean sendSpecificNotice(long teacherId, long parentId, String title, String context) {
+    public boolean sendOneSpecificNotice(long teacherId, long parentId, String title, String context) {
 
         Parent parent = parentInfoDao.findParentById(parentId);
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("980231201@qq.com");
+        message.setFrom(FROM_MAIL);
         message.setTo(parent.getParentMail());
         message.setSubject(title);
         message.setText(context);
@@ -64,5 +67,30 @@ public class NoticeServiceImpl implements NoticeService {
         SpecificNotice specificNotice =
                 new SpecificNotice(new Date(), teacherId, parentId, title, context);
         return specificNoticeDao.saveSpecificNotice(specificNotice);
+    }
+
+    @Override
+    public boolean sendSomeSpecificNotices(long teacherId, List<Long> parentIds,
+                                           String title, String context) {
+        boolean res = true;
+        String[] storeMails = new String[parentIds.size()];
+
+        for(int i = 0; i < parentIds.size(); i++){
+            storeMails[i] = parentInfoDao.findParentById(parentIds.get(i)).getParentMail();
+        }
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(FROM_MAIL);
+        message.setTo(storeMails);
+        message.setSubject(title);
+        message.setText(context);
+        mailSender.send(message);
+
+        for(long oneId : parentIds){
+            SpecificNotice specificNotice =
+                    new SpecificNotice(new Date(), teacherId, oneId, title, context);
+            res &= specificNoticeDao.saveSpecificNotice(specificNotice);
+        }
+        return res;
     }
 }
