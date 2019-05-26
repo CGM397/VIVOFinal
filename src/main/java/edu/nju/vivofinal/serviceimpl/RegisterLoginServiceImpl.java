@@ -29,7 +29,7 @@ public class RegisterLoginServiceImpl implements RegisterLoginService {
 
     private static final String SUCCESS = "success";
 
-    private static final String DUPLICATEMAIL = "duplicate_mail";
+    private static final String DUPLICATE_MAIL = "duplicate_mail";
 
     @Override
     public String login(String identity, String account, String password) {
@@ -74,11 +74,11 @@ public class RegisterLoginServiceImpl implements RegisterLoginService {
         List<Teacher> teachers = teacherInfoDao.findAllTeachers();
         for(Parent one : parents) {
             if(one.getParentMail().equals(userMail))
-                return DUPLICATEMAIL;
+                return DUPLICATE_MAIL;
         }
         for(Teacher one : teachers) {
             if(one.getTeacherMail().equals(userMail))
-                return DUPLICATEMAIL;
+                return DUPLICATE_MAIL;
         }
         SimpleMailMessage message = new SimpleMailMessage();
         String randomCode = commonService.generateRandomCode(6);

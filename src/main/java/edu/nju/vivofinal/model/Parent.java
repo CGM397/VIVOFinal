@@ -20,6 +20,8 @@ public class Parent implements Serializable {
 
     private String parentPassword;
 
+    private String parentPhoneNumber;
+
     private String studentId;
 
     private String studentName;
@@ -28,10 +30,11 @@ public class Parent implements Serializable {
     }
 
     public Parent(String parentName, String parentMail, String parentPassword,
-                  String studentId, String studentName) {
+                  String parentPhoneNumber, String studentId, String studentName) {
         this.parentName = parentName;
         this.parentMail = parentMail;
         this.parentPassword = parentPassword;
+        this.parentPhoneNumber = parentPhoneNumber;
         this.studentId = studentId;
         this.studentName = studentName;
     }
@@ -62,6 +65,14 @@ public class Parent implements Serializable {
 
     public String getParentPassword() {
         return parentPassword;
+    }
+
+    public String getParentPhoneNumber() {
+        return parentPhoneNumber;
+    }
+
+    public void setParentPhoneNumber(String parentPhoneNumber) {
+        this.parentPhoneNumber = parentPhoneNumber;
     }
 
     public void setParentPassword(String parentPassword) {

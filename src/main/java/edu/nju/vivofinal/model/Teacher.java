@@ -21,6 +21,8 @@ public class Teacher implements Serializable {
 
     private String teacherPassword;
 
+    private String teacherPhoneNumber;
+
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Set<Parent> parents;
 
@@ -31,10 +33,11 @@ public class Teacher implements Serializable {
     }
 
     public Teacher(String teacherName, String teacherMail, String teacherPassword,
-                   Set<Parent> parents, Set<ExamScore> examScores) {
+                   String teacherPhoneNumber, Set<Parent> parents, Set<ExamScore> examScores) {
         this.teacherName = teacherName;
         this.teacherMail = teacherMail;
         this.teacherPassword = teacherPassword;
+        this.teacherPhoneNumber = teacherPhoneNumber;
         this.parents = parents;
         this.examScores = examScores;
     }
@@ -69,6 +72,14 @@ public class Teacher implements Serializable {
 
     public void setTeacherPassword(String teacherPassword) {
         this.teacherPassword = teacherPassword;
+    }
+
+    public String getTeacherPhoneNumber() {
+        return teacherPhoneNumber;
+    }
+
+    public void setTeacherPhoneNumber(String teacherPhoneNumber) {
+        this.teacherPhoneNumber = teacherPhoneNumber;
     }
 
     public Set<Parent> getParents() {
