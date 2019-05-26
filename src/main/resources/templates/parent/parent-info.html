@@ -134,6 +134,17 @@
                                                         </div>
 
                                                         <div class="space-4"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="teacherName">教师</label>
+
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input class="col-xs-12 col-sm-8" type="text" name="teacherName" id="teacherName"/>
+                                                                    <button id="bind" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:2px;">绑定教师</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -179,7 +190,7 @@
     </a>
 </div>
 <input th:value="${parent.parentId}" id="parentId" type="text" style="display:none;"/>
-<!-- 模态框（Modal
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -192,8 +203,11 @@
             <div class="modal-body">
                 <form id="addressForm">
                     <div class="form-group">
-                        <label for="addressToAdd" class="col-form-label">地址</label>
-                        <input type="text" autofocus class="form-control" name="addressToAdd" id="addressToAdd">
+                        <label for="teacherEmail" class="col-form-label">教师邮箱</label>
+                        <input type="text" autofocus class="form-control" name="teacherEmail" id="teacherEmail">
+                    </div>
+                    <div class="form-group">
+                        <p id="teacherName2" class="red">无</p>
                     </div>
                 </form>
             </div>
@@ -202,7 +216,8 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
+
 <div th:include="parent/parent-common::commonFooter"></div>
 <script th:src="@{static/js/jquery.validate.min.js}"></script>
 </body>
@@ -216,16 +231,37 @@
         this.studentId=studentId;
         this.studentName=studentName;
     }
+
+    function bind(email){
+        $.ajax({
+            type: 'POST',
+            url: "parent/update",
+            data:{
+                email:
+            }
+            success:function(result) {
+                if(result=true) {
+                    window.location.reload();
+                }else{
+                    bootbox.alert("该学号已注册！");
+                }
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    }
 </script>
 <script type="text/javascript">
-    $("#addAddressSureBut").click(function (){
-        var address = $("#addressToAdd").val();
-        if(address!="") {
-            console.log(address);
-            $("#form-field-select").append("<option value='"+address+"'>"+address+"</option>");
+    $("#bindSureBut").click(function (){
+        var teacherEmail = $("#teacherEmail").val();
+        var teacherName = $("#teacherName2").val();
+        if(teacherName!="无"){
+            bind(teacherEmail);
             $("#myModal").modal("hide");
         }
     });
+
 
     $('#validation-form').validate({
         errorElement: 'div',
@@ -340,7 +376,7 @@
             error: function (result) {
                 bootbox.alert("error!");
             }
-        });I
+        });
     };
 </script>
 </html>
