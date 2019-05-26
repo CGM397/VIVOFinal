@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="customer/cstCommon::commonHeader">
+<head th:replace="parent/parent-common::commonHeader">
 </head>
 <body>
-<div th:include="customer/cstCommon::commonNavBar" class="navbar navbar-default" id="navbar"></div>
+<div th:include="parent/parent-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
 <div class="main-container" id="main-container">
     <script type="text/javascript">
         try{ace.settings.check('main-container' , 'fixed')}catch(e){}
@@ -14,7 +14,7 @@
             <span class="menu-text"></span>
         </a>
 
-        <div th:include="customer/cstCommon::commonNav('cstHome')" class="sidebar" id="sidebar"></div>
+        <div th:include="parent/parent-common::commonNav('parent-common')" class="sidebar" id="sidebar"></div>
 
         <div class="main-content">
             <div class="breadcrumbs" id="breadcrumbs">
@@ -47,10 +47,9 @@
 
                             欢迎使用
                             <strong class="green">
-                                YUMMY网上订餐系统
+                                家校联动平台
                                 <small>(v1.0)</small>
                             </strong>
-                            ,会员端
                         </div>
                     </div>
                 </div>
@@ -62,6 +61,6 @@
         <i class="icon-double-angle-up icon-only bigger-110"></i>
     </a>
 </div>
-<div th:include="customer/cstCommon::commonFooter"></div>
+<div th:include="parent/parent-common::commonFooter"></div>
 </body>
 </html>

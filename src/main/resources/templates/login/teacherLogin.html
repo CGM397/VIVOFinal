@@ -21,9 +21,9 @@
             <h1>Yummy Restaurant</h1>
             <div class="field-wrap">
                 <label>
-                    Id<span class="req">*</span>
+                    Email<span class="req">*</span>
                 </label>
-                <input type="text" id="id_signin" readonly onfocus="this.removeAttribute('readonly');" required autocomplete="off" />
+                <input type="text" id="email_signin" readonly onfocus="this.removeAttribute('readonly');" required autocomplete="off" />
             </div>
             <div class="field-wrap">
                 <label>
@@ -32,19 +32,19 @@
                 <input type="password" id="password_signin" readonly onfocus="this.removeAttribute('readonly');" required autocomplete="off" />
             </div>
             <p class="forgot">
-                <a href="/yummy/cstLogin">Customer Login</a>
+                <a href="/teacherLogin">Teacher Login</a>
             </p>
             <button id="submit_signin" class="button button-block">Log In</button>
         </div>
 
         <div id="signup">
-            <h1>Restaurant Register</h1>
+            <h1>Teacher Sign Up</h1>
             <p id="errorInfo"></p>
             <div class="field-wrap">
                 <label>
-                    Name<span class="req">*</span>
+                    Email<span class="req">*</span>
                 </label>
-                <input type="text" id="name_signup" required autocomplete="off" />
+                <input type="text" id="email_signup" required autocomplete="off" />
             </div>
             <div class="field-wrap">
                 <label>
@@ -60,21 +60,13 @@
             </div>
             <div class="field-wrap">
                 <label>
-                    Type<span class="req">*</span>
+                    Verification code<span class="req">*</span>
                 </label>
-                <input type="text" id="type_signup" required autocomplete="off" />
-            </div>
-            <div class="field-wrap">
-                <label>
-                    Address<span class="req">*</span>
-                </label>
-                <input type="text" id="address_signup" required autocomplete="off" />
-            </div>
-            <div class="field-wrap">
-                <label>
-                    Phone<span class="req">*</span>
-                </label>
-                <input type="text" id="phone_signup" required autocomplete="off" />
+                <input type="text" id="vertification_signup" required autocomplete="off" />
+                <button id="sendEmail" class="btn btn-primary pull-right mt-4 mb-4">
+                    <i class="icon-beaker align-top bigger-125"></i>
+                    发送验证码
+                </button>
             </div>
             <button id="submit_signup" class="button button-block">Get Started</button>
         </div>
@@ -87,18 +79,19 @@
 <script th:src="@{/static/js/bootbox.min.js}"></script>
 <script th:inline="javascript">
     document.getElementById("submit_signin").onclick=function(){
-        var id=document.getElementById("id_signin").value;
+        var email=document.getElementById("email_signin").value;
         var password=document.getElementById("password_signin").value;
         $.ajax({
             type: 'POST',
-            url: "Register/rstLogin",
+            url: "registerLogin/login",
             data: {
-                id:parseInt(id),
+                identity:"教师",
+                account:email,
                 password:password
             },
             success:function(result) {
                 if(result==true) {
-                    window.location.href = '/yummy/rstHome';
+                    window.location.href = '/teacherHome';
                 }else{
                     bootbox.alert("用户名或密码错误");
                 }
@@ -108,25 +101,47 @@
             }
         });
     };
-    function Restaurant(password,type,name,phone,address) {
-        this.password = password;
-        this.type = type;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-    }
-
+    document.getElementById('sendEmail').onclick=function(){
+        var email=document.getElementById("email_signup").value;
+        var emailPattern = new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+        if(email=='') {
+            bootbox.alert("邮箱不能为空");
+            return;
+        }else if(!emailPattern.test(email)){
+            bootbox.alert("邮箱格式错误");
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "/registerLogin/sendMail",
+            data: {
+                customerMail:email,
+            },
+            success:function(result) {
+                if(result=="duplicate_mail"){
+                    bootbox.alert("该邮箱已注册");
+                    return;
+                }
+                vertificationCode=result;
+                bootbox.alert("验证码已发送");
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    };
     document.getElementById("submit_signup").onclick=function(){
+        var email=document.getElementById("email_signup").value;
         var password=document.getElementById("password_signup").value;
         var password2=document.getElementById("password2_signup").value;
-        var name=document.getElementById("name_signup").value;
-        var type=document.getElementById("type_signup").value;
-        var phone=document.getElementById("phone_signup").value;
-        var address=document.getElementById("address_signup").value;
+        var vertification=document.getElementById("vertification_signup").value;
         var pwdPattern = new RegExp(/^[a-z0-9_-]{6,12}$/);
-        var phonePattern = new RegExp(/^[0-9]{5,15}$/);
-        if(name=='') {
-            bootbox.alert("店名不能为空");
+        var emailPattern = new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+        if(email=='') {
+            bootbox.alert("邮箱不能为空");
+            return;
+        }else if(!emailPattern.test(email)){
+            bootbox.alert("邮箱格式错误");
             return;
         }else if(!pwdPattern.test(password)){
             bootbox.alert("密码必须为6~12位数字、大小写字母、中划线、下划线");
@@ -134,25 +149,26 @@
         }else if(password!=password2){
             bootbox.alert("重复密码错误");
             return;
-        }else if(type==''){
-            bootbox.alert("类型不能为空");
+        }else if(vertification==""){
+            bootbox.alert("验证码不能为空");
             return;
-        }else if(!phonePattern.test(phone)){
-            bootbox.alert("电话号码格式错误");
-            return;
-        }else if(address==''){
-            bootbox.alert("地址不能为空");
+        }else if(vertification!=vertificationCode){
+            bootbox.alert("验证码错误");
             return;
         }
-        var rst=new Restaurant(password,type,name,phone,address);
-        var basePath = "http:\/\/localhost:8080\/yummy";
         $.ajax({
             type: 'POST',
-            url: "/yummy/loginAndRegister/rstRegister",
-            contentType: "application/json",
-            data: JSON.stringify(rst),
+            url: "/registerLogin/teacherRegister",
+            data: {
+                teacherMail:email,
+                teacherPassword:password,
+            },
             success:function(result) {
-                window.location.href = 'rstRegister/'+result;
+                if(result==true) {
+                    window.location.href = '/teacherLogin';
+                }else{
+                    bootbox.alert("该邮箱已注册");
+                }
             },
             error: function (result) {
                 bootbox.alert("error!");
@@ -162,19 +178,13 @@
 </script>
 <script>
     $().ready(function () {
+        $("#email_signup").click(emailReq);
         $("#password_signup").click(passwordReq);
         $("#password2_signup").click(checkPasswordReq);
-        $("#name_signup").click(nameReq);
-        $("#phone_signup").click(phoneReq);
-        $("#type_signup").click(typeReq);
-        $("#address_signup").click(addressReq);
 
+        $("#email_signup").change(checkEmail);
         $("#password_signup").change(checkPasswordForm);
         $("#password2_signup").change(checkpasswordSame);
-        $("#name_signup").change(checkName);
-        $("#phone_signup").change(checkPhone);
-        $("#type_signup").change(checkName);
-        $("#address_signup").change(checkName);
 
         $('.form').find('input, textarea').on('keyup blur focus', function (e) {
             var $this = $(this),
@@ -215,6 +225,10 @@
             $(target).fadeIn(600);
         });
     });
+    function emailReq() {
+        $("#errorInfo").attr("class","err");
+        $("#errorInfo").text("合法可用的邮箱地址");
+    }
     function passwordReq() {
         $("#errorInfo").attr("class", "err");
         $("#errorInfo").text("6~12位数字、大小写字母、中划线、下划线")
@@ -223,21 +237,16 @@
         $("#errorInfo").attr("class", "err");
         $("#errorInfo").text("请确认密码")
     }
-    function nameReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入店名");
-    }
-    function typeReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入类型");
-    }
-    function addressReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入地址");
-    }
-    function phoneReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入电话号码，5-15位数字");
+    function checkEmail() {
+        var patten = new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+        var name = $(this).val();
+        if (!patten.test(name)){
+            $(this).attr("class", "red");
+        }else {
+            $("#errorInfo").text("请输入信息");
+            $("#errorInfo").attr("class","correct");
+            $(this).attr("class", "green");
+        }
     }
     function checkPasswordForm() {
         var patten = new RegExp(/^[a-z0-9_-]{6,12}$/);
@@ -262,47 +271,7 @@
             $(this).attr("class", "green");
         }
     }
-    function checkName(){
-        var name = $(this).val();
-        if (name=="") {
-            $(this).attr("class", "red");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
-    function checkType(){
-        var name = $(this).val();
-        if (name=="") {
-            $(this).attr("class", "red");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
-    function checkAddress(){
-        var name = $(this).val();
-        if (name=="") {
-            $(this).attr("class", "red");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
-    function checkPhone(){
-        var patten = new RegExp(/^[0-9]{5,15}$/);
-        var name = $(this).val();
-        if (!patten.test(name)) {
-            $(this).attr("class", "red");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
+
 
 </script>
 </html>

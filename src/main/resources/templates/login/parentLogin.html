@@ -18,9 +18,7 @@
 
     <div class="tab-content">
         <div id="login">
-            <h1>Welcome Yummy!</h1>
-            <input type="text" style="display: none">
-            <input type="password" style="display: none">
+            <h1>Parent Login</h1>
             <div class="field-wrap">
                 <label>
                     Email<span class="req">*</span>
@@ -34,13 +32,13 @@
                 <input type="password" id="password_signin" readonly onfocus="this.removeAttribute('readonly');" required autocomplete="off" />
             </div>
             <p class="forgot">
-                <a href="/rstLogin">Restaurant Login</a>
+                <a href="/teacherLogin">Teacher Login</a>
             </p>
             <button id="submit_signin" class="button button-block">Log In</button>
         </div>
 
         <div id="signup">
-            <h1>Sign Up for Yummy</h1>
+            <h1>Parent Sign Up</h1>
             <p id="errorInfo"></p>
             <div class="field-wrap">
                 <label>
@@ -59,18 +57,6 @@
                     Confirm<span class="req">*</span>
                 </label>
                 <input type="password" id="password2_signup" required autocomplete="off" />
-            </div>
-            <div class="field-wrap">
-                <label>
-                    Name<span class="req">*</span>
-                </label>
-                <input type="text" id="name_signup" required autocomplete="off" />
-            </div>
-            <div class="field-wrap">
-                <label>
-                    Phone<span class="req">*</span>
-                </label>
-                <input type="text" id="phone_signup" required autocomplete="off" />
             </div>
             <div class="field-wrap">
                 <label>
@@ -99,13 +85,13 @@
             type: 'POST',
             url: "/registerLogin/login",
             data: {
-                identity:"顾客",
+                identity:"家长",
                 account:email,
                 password:password
             },
             success:function(result) {
                 if(result=="success") {
-                    window.location.href="/customer-home"
+                    window.location.href="/parentHome"
                 }else{
                     bootbox.alert("用户名或密码错误");
                 }
@@ -132,9 +118,13 @@
             type: 'POST',
             url: "/registerLogin/sendMail",
             data: {
-                customerMail:email,
+                userMail:email,
             },
             success:function(result) {
+                if(result=="duplicate_mail"){
+                    bootbox.alert("该邮箱已注册");
+                    return;
+                }
                 vertificationCode=result;
                 bootbox.alert("验证码已发送");
             },
@@ -148,12 +138,9 @@
         var email=document.getElementById("email_signup").value;
         var password=document.getElementById("password_signup").value;
         var password2=document.getElementById("password2_signup").value;
-        var name=document.getElementById("name_signup").value;
-        var phone=document.getElementById("phone_signup").value;
         var vertification=document.getElementById("vertification_signup").value;
         var pwdPattern = new RegExp(/^[a-z0-9_-]{6,12}$/);
         var emailPattern = new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
-        var phonePattern = new RegExp(/^[0-9]{5,15}$/);
         if(email=='') {
             bootbox.alert("邮箱不能为空");
             return;
@@ -166,12 +153,6 @@
         }else if(password!=password2){
             bootbox.alert("重复密码错误");
             return;
-        }else if(name==''){
-            bootbox.alert("姓名不能为空");
-            return;
-        }else if(!phonePattern.test(phone)){
-            bootbox.alert("电话号码格式错误");
-            return;
         }else if(vertification==""){
             bootbox.alert("验证码不能为空");
             return;
@@ -181,16 +162,14 @@
         }
         $.ajax({
             type: 'POST',
-            url: "/registerLogin/customerRegister",
+            url: "/registerLogin/parentRegister",
             data: {
-                customerMail:email,
-                customerPassword:password,
-                customerName:name,
-                phoneNumber:phone
+                parentMail:email,
+                parentPassword:password,
             },
             success:function(result) {
                 if(result==true) {
-                    window.location.href = 'cstlogin/cstLogin';
+                    window.location.href = '/parentLogin';
                 }else{
                     bootbox.alert("该邮箱已注册");
                 }
@@ -206,14 +185,10 @@
         $("#email_signup").click(emailReq);
         $("#password_signup").click(passwordReq);
         $("#password2_signup").click(checkPasswordReq);
-        $("#name_signup").click(nameReq);
-        $("#phone_signup").click(phoneReq);
 
         $("#email_signup").change(checkEmail);
         $("#password_signup").change(checkPasswordForm);
         $("#password2_signup").change(checkpasswordSame);
-        $("#name_signup").change(checkName);
-        $("#phone_signup").change(checkPhone);
 
         $('.form').find('input, textarea').on('keyup blur focus', function (e) {
             var $this = $(this),
@@ -266,14 +241,6 @@
         $("#errorInfo").attr("class", "err");
         $("#errorInfo").text("请确认密码")
     }
-    function nameReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入姓名");
-    }
-    function phoneReq() {
-        $("#errorInfo").attr("class","err");
-        $("#errorInfo").text("请输入电话号码，5-15位数字");
-    }
     function checkEmail() {
         var patten = new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
         var name = $(this).val();
@@ -302,27 +269,6 @@
         if (password != check) {
             $(this).attr("class", "red");
             $("#errorInfo").text("密码不一致");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
-    function checkName(){
-        var name = $(this).val();
-        if (name=="") {
-            $(this).attr("class", "red");
-        } else {
-            $("#errorInfo").text("请输入信息");
-            $("#errorInfo").attr("class","correct");
-            $(this).attr("class", "green");
-        }
-    }
-    function checkPhone(){
-        var patten = new RegExp(/^[0-9]{5,15}$/);
-        var name = $(this).val();
-        if (!patten.test(name)) {
-            $(this).attr("class", "red");
         } else {
             $("#errorInfo").text("请输入信息");
             $("#errorInfo").attr("class","correct");
