@@ -38,17 +38,17 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        发送成绩通知
+                        发布成绩通知
                     </h1>
                 </div><!-- /.page-header -->
                                                 <div class="widget-header">
-                                                    <h4>提交课程成绩</h4>
+                                                    <h4>发布课程成绩</h4>
                                                 </div>
 
                                                 <div class="widget-body">
                                                     <div class="widget-main">
                                                         <div class="form-group">
-                                                            <span style="font-size: 18px">课程名：</span>
+                                                            <span style="font-size: 18px">考试名：</span>
                                                             <input id="lesson" type="text" class="form-control" placeholder="课程" >
                                                         </div>
                                                         <div class="form-group">
@@ -141,16 +141,22 @@
 
 
     function upLoadScoreAjax(score) {
-        $.ajax({ url: "/teacher/sendExamScore", dataType:"json", data:JSON.stringify(score),type:"POST",timeout:3000,
-            contentType:"application/json;charset=utf-8",success: function(data){
-            alert("发布成功");
+        $.ajax({
+            url: "/teacher/sendExamScore",
+            dataType:"json",
+            data:JSON.stringify(score),
+            type:"POST",
+            timeout:3000,
+            contentType:"application/json;charset=utf-8",
+            success: function(data){
+                bootbox.alert("发布成功");
             }
             ,error:function (XMLHttpRequest, textStatus, errorThrown) {
                 if(textStatus==408){
-                    alert("请求超时");
+                    bootbox.alert("请求超时");
                 }
                 else {
-                    alert("请求失败")
+                    bootbox.alert("请求失败")
                 }
             }});
     }

@@ -28,19 +28,25 @@
                         <a href="/parentHome">主页</a>
                     </li>
 
-                    <li class="active">成绩查看</li>
+                    <li class="active">成绩统计</li>
                 </ul>
             </div>
-
-            <div class="widget-body">
-                <div class="widget-main">
-                    <div id="personalScore" style="width: 1000px; height:400px">
-                        成绩折线图
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        成绩统计
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="personalScore" style="width: 1000px; height:400px">
+                                个人成绩统计
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!--页面具体内容-->
         </div>
     </div>
 
@@ -57,7 +63,7 @@
     var myChart = echarts.init(document.getElementById("personalScore"));
     var option = {
         title:{
-            text:"Personal Score"
+            text:"个人成绩折线图"
         },
         tooltip : {
             trigger: 'axis'

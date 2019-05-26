@@ -57,12 +57,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="parent:${parentList}">
+                                <tr th:each="parent:${parents}">
                                     <td th:text="${parent.studentId}"></td>
                                     <td th:text="${parent.studentName}"></td>
                                     <td th:text="${parent.parentName}"></td>
                                     <td th:text="${parent.parentMail}"></td>
-                                    <td th:text="${parent.parentPhone}"></td>
+                                    <td th:text="${parent.parentPhoneNumber}"></td>
                                     <td>
                                         <button class="btn btn-xs btn-info" onclick="checkDetail(this)">
                                             <i class="icon-edit bigger-120"></i>详情

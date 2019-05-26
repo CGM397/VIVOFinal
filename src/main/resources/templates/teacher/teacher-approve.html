@@ -52,19 +52,15 @@
                                     <th>学生学号</th>
                                     <th>学生姓名</th>
                                     <th>家长姓名</th>
-                                    <th>家长邮箱</th>
-                                    <th>家长电话</th>
                                     <th>详情</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="application:${applications}">
-                                    <td th:text="${application.applicationId}"></td>
-                                    <td th:text="${application.studentId}"></td>
-                                    <td th:text="${application.studentName}"></td>
-                                    <td th:text="${application.parentName}"></td>
-                                    <td th:text="${application.parentMail}"></td>
-                                    <td th:text="${application.parentPhone}"></td>
+                                <tr th:each="a:${applications}">
+                                    <td th:text="${a.applicationId}"></td>
+                                    <td th:text="${a.studentId}"></td>
+                                    <td th:text="${a.studentName}"></td>
+                                    <td th:text="${a.parentName}"></td>
                                     <td>
                                         <button class="btn btn-xs btn-success" onclick="approve(this)">
                                             <i class="icon-edit bigger-120"></i>审批
@@ -92,7 +88,7 @@
     jQuery(function($) {
         var oTable1 = $('#sample-table-2').dataTable( {
             "aoColumns": [
-                null, null, { "bSortable": false },{ "bSortable": false }, { "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+                null, null,{ "bSortable": false },{ "bSortable": false },{ "bSortable": false }
             ] } );
     })
 </script>

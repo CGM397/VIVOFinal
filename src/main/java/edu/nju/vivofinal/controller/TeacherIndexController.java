@@ -46,7 +46,10 @@ public class TeacherIndexController {
     }
 
     @RequestMapping("/teacherStudents")
-    public String teacherStudents(){
+    public String teacherStudents(HttpServletRequest request,Model model){
+        String email=(String)request.getSession(true).getAttribute("email");
+        Teacher t=teacherInfoServiceImpl.findTeacherInfoByMail(email);
+        model.addAttribute("parents",t.getParents());
         return "teacher/teacher-students";
     }
 

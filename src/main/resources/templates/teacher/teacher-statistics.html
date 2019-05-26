@@ -31,16 +31,22 @@
                     <li class="active">成绩统计</li>
                 </ul>
             </div>
-
-            <div class="widget-body">
-                <div class="widget-main">
-                    <div id="averageScore" style="width: 1000px; height:400px">
-                        每次考试平均成绩
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        成绩统计
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="averageScore" style="width: 1000px; height:400px">
+                                考试平均分统计：
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!--页面具体内容-->
         </div>
     </div>
 
@@ -56,7 +62,7 @@
     var myChart = echarts.init(document.getElementById("averageScore"));
     var option = {
         title:{
-            text:"Average Score"
+            text:"考试平均分折线图"
         },
         tooltip : {
             trigger: 'axis'
