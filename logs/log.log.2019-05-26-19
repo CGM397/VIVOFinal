@@ -1,0 +1,268 @@
+[framework][18:02:07,173-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][18:02:07,347-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 15112 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][18:02:07,348-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][18:02:08,041-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][18:02:08,084-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 36ms. Found 0 repository interfaces. 
+[framework][18:02:08,336-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$efed52e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][18:02:08,565-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][18:02:08,731-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1335 ms 
+[framework][18:02:08,846-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][18:02:08,987-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][18:02:09,040-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][18:02:09,109-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][18:02:09,111-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][18:02:09,147-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][18:02:09,388-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][18:02:09,974-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][18:02:10,187-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][18:02:10,388-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][18:02:10,391-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.343 seconds (JVM running for 4.551) 
+[framework][18:02:16,708-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][18:02:16,716-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 8 ms 
+[framework][18:02:16,829-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][18:04:35,417-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][18:04:35,598-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 6072 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][18:04:35,599-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][18:04:36,212-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][18:04:36,251-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 33ms. Found 0 repository interfaces. 
+[framework][18:04:36,493-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3a47d7b4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][18:04:36,724-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][18:04:36,913-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1275 ms 
+[framework][18:04:37,036-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][18:04:37,174-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][18:04:37,236-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][18:04:37,298-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][18:04:37,300-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][18:04:37,335-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][18:04:37,580-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][18:04:38,206-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][18:04:38,433-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][18:04:38,627-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][18:04:38,629-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.349 seconds (JVM running for 4.39) 
+[framework][18:05:40,668-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][18:05:40,854-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 21596 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][18:05:40,855-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][18:05:41,479-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][18:05:41,518-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 34ms. Found 0 repository interfaces. 
+[framework][18:05:41,760-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ee4b29f9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][18:05:41,978-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][18:05:42,166-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1268 ms 
+[framework][18:05:42,289-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][18:05:42,418-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][18:05:42,473-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][18:05:42,550-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][18:05:42,551-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][18:05:42,594-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][18:05:42,836-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][18:05:43,434-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][18:05:43,654-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][18:05:43,863-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][18:05:43,866-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.322 seconds (JVM running for 4.78) 
+[framework][18:05:46,203-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][18:05:46,208-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 4 ms 
+[framework][18:05:46,324-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][18:06:07,585-org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1249)][WARN]:No mapping for POST /parent/update 
+[framework][19:36:14,890-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][19:36:15,076-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 19272 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][19:36:15,077-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][19:36:15,792-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][19:36:15,841-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 43ms. Found 0 repository interfaces. 
+[framework][19:36:16,081-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5daf42be] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][19:36:16,296-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][19:36:16,476-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1361 ms 
+[framework][19:36:16,614-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][19:36:16,778-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][19:36:16,834-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][19:36:16,893-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][19:36:16,894-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][19:36:16,937-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][19:36:17,200-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][19:36:17,809-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][19:36:18,052-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][19:36:18,284-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][19:36:18,287-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.531 seconds (JVM running for 4.504) 
+[framework][19:36:31,225-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][19:36:31,231-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 5 ms 
+[framework][19:36:38,919-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][19:36:53,842-org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions(SqlExceptionHelper.java:129)][WARN]:SQL Error: 1366, SQLState: HY000 
+[framework][19:36:53,843-org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions(SqlExceptionHelper.java:131)][ERROR]:Incorrect string value: '\xE5\x94\x90\xE8\xAF\x97...' for column 'studentName' at row 1 
+[framework][19:36:53,848-org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl.release(AbstractBatchImpl.java:193)][INFO]:HHH000010: On release of batch it still contained JDBC statements 
+[framework][19:36:53,852-org.hibernate.internal.ExceptionMapperStandardImpl.mapManagedFlushFailure(ExceptionMapperStandardImpl.java:39)][ERROR]:HHH000346: Error during managed flush [org.hibernate.exception.GenericJDBCException: could not execute statement] 
+[framework][19:36:53,854-edu.nju.vivofinal.daoimpl.BaseDaoImpl.save(BaseDaoImpl.java:38)][ERROR]:Sun May 26 19:36:53 CST 2019:  
+javax.persistence.RollbackException: Error while committing the transaction
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:75)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:71)
+	at edu.nju.vivofinal.daoimpl.BaseDaoImpl.save(BaseDaoImpl.java:35)
+	at edu.nju.vivofinal.daoimpl.BaseDaoImpl$$FastClassBySpringCGLIB$$cca96094.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.nju.vivofinal.daoimpl.BaseDaoImpl$$EnhancerBySpringCGLIB$$384d280b.save(<generated>)
+	at edu.nju.vivofinal.daoimpl.ParentInfoDaoImpl.saveParentInfo(ParentInfoDaoImpl.java:32)
+	at edu.nju.vivofinal.daoimpl.ParentInfoDaoImpl$$FastClassBySpringCGLIB$$bf0f26cd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at edu.nju.vivofinal.daoimpl.ParentInfoDaoImpl$$EnhancerBySpringCGLIB$$dfeba656.saveParentInfo(<generated>)
+	at edu.nju.vivofinal.serviceimpl.ParentInfoServiceImpl.saveParentInfo(ParentInfoServiceImpl.java:26)
+	at edu.nju.vivofinal.controller.ParentController.save(ParentController.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:147)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:155)
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:56)
+	... 75 more
+Caused by: org.hibernate.exception.GenericJDBCException: could not execute statement
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:47)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3003)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3503)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:89)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	... 74 more
+Caused by: java.sql.SQLException: Incorrect string value: '\xE5\x94\x90\xE8\xAF\x97...' for column 'studentName' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2484)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:205)
+	... 91 more
+[framework][19:43:50,479-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][19:43:50,669-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 2500 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][19:43:50,670-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][19:43:51,359-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][19:43:51,399-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 34ms. Found 0 repository interfaces. 
+[framework][19:43:51,642-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f09103ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][19:43:51,856-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][19:43:52,033-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1322 ms 
+[framework][19:43:52,158-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][19:43:52,290-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][19:43:52,344-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][19:43:52,415-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][19:43:52,417-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][19:43:52,453-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][19:43:52,707-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][19:43:53,313-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][19:43:53,538-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][19:43:53,738-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][19:43:53,740-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.403 seconds (JVM running for 4.427) 
+[framework][19:44:00,027-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][19:44:00,032-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 5 ms 
+[framework][19:44:05,840-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][19:46:53,958-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][19:46:54,147-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on LAPTOP-PRQQ456I with PID 13960 (C:\Users\tsl\VIVOFinal\target\classes started by tsl in C:\Users\tsl\VIVOFinal) 
+[framework][19:46:54,148-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][19:46:54,836-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][19:46:54,878-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 37ms. Found 0 repository interfaces. 
+[framework][19:46:55,117-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f3c78889] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][19:46:55,350-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][19:46:55,531-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 1340 ms 
+[framework][19:46:55,652-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][19:46:55,782-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][19:46:55,840-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][19:46:55,910-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][19:46:55,912-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][19:46:55,952-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][19:46:56,200-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][19:46:56,796-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][19:46:57,017-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][19:46:57,303-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][19:46:57,305-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 3.483 seconds (JVM running for 4.648) 
+[framework][19:47:16,982-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][19:47:16,987-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 5 ms 
+[framework][19:47:17,085-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
