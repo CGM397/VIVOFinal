@@ -6,6 +6,7 @@
 package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.VIVOFinalApplication;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
@@ -31,7 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = VIVOFinalApplication.class)
 @Transactional
-public class RestaurantInfoDaoImplTest{
+public class RestaurantInfoDaoImplTest extends TestCase {
 
   @Test(timeout = 4000)
   public void test00()  throws Throwable  {

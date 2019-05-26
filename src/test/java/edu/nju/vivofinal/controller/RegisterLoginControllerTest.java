@@ -2,6 +2,7 @@ package edu.nju.vivofinal.controller;
 
 
 import edu.nju.vivofinal.VIVOFinalApplication;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
@@ -27,7 +28,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VIVOFinalApplication.class)
-public class RegisterLoginControllerTest {
+public class RegisterLoginControllerTest extends TestCase {
     @Test(timeout = 4000)
     public void test00()  throws Throwable  {
         RegisterLoginController registerLoginController0 = new RegisterLoginController();
