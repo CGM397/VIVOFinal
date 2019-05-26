@@ -7,21 +7,18 @@ public interface RegisterLoginService {
     /**
      * check the uniqueness of this userMail,
      * then send verification code to this mail address!
-     * @param customerMail the user's mail address
+     * @param userMail the user's mail address
      * @return verification code or wrong message
      */
-    String sendMail(String customerMail);
+    String sendMail(String userMail);
 
     /**
      * save this new user's info!
-     * @param customerMail user mail
-     * @param customerPassword user password
-     * @param customerName user name
-     * @param phoneNumber user phone number
+     * @param parentMail user mail
+     * @param parentPassword user password
      * @return success or not
      */
-    boolean customerRegister(String customerMail, String customerPassword,
-                             String customerName, String phoneNumber);
+    boolean parentRegister(String parentMail, String parentPassword);
 
-    String restaurantRegister(String restaurantName, String restaurantPassword);
+    boolean teacherRegister(String teacherMail, String teacherPassword);
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public class BaseDaoImpl implements BaseDao {
@@ -48,6 +49,46 @@ public class BaseDaoImpl implements BaseDao {
             transaction.commit();
             res = true;
         }catch (Exception e) {
+            logger.error(new Date().toString() + ": ", e);
+        }
+        return res;
+    }
+
+    @Override
+    public boolean delete(Class c, long id) {
+        boolean res = false;
+        try(Session session = getSession()){
+            Transaction transaction = session.beginTransaction();
+            Object obj = session.get(c, id);
+            session.delete(obj);
+            transaction.commit();
+            res = true;
+        }catch (Exception e){
+            logger.error(new Date().toString() + ": ", e);
+        }
+
+        return res;
+    }
+
+    @Override
+    public Object findById(Class c, long id) {
+        Object res = null;
+        try(Session session = getSession()){
+            res = session.get(c, id);
+        }catch (Exception e){
+            logger.error(new Date().toString() + ": ", e);
+        }
+
+        return res;
+    }
+
+    @Override
+    public List getAllList(Class c) {
+        List res = null;
+        try(Session session = getSession()){
+            String sql = "from " + c.getName();
+            res = session.createQuery(sql).list();
+        }catch (Exception e){
             logger.error(new Date().toString() + ": ", e);
         }
         return res;

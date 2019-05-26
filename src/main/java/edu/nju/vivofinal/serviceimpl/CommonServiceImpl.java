@@ -1,9 +1,5 @@
 package edu.nju.vivofinal.serviceimpl;
 
-import edu.nju.vivofinal.dao.CustomerInfoDao;
-import edu.nju.vivofinal.dao.RestaurantInfoDao;
-import edu.nju.vivofinal.model.Customer;
-import edu.nju.vivofinal.model.Restaurant;
 import edu.nju.vivofinal.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
