@@ -32,21 +32,56 @@
                 </ul>
             </div>
 
-            <div class="page-content">
-                <div class="page-header">
-                    <h1>
-                        成绩统计
-                    </h1>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <div id="averageScore" style="width: 1000px; height:400px">
+                        每次考试平均成绩
+                    </div>
                 </div>
-                <div class="row">
-                </div>
-            </div><!--页面具体内容-->
+            </div>
+
+            <!--页面具体内容-->
         </div>
     </div>
+
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="icon-double-angle-up icon-only bigger-110"></i>
     </a>
 </div>
 <div th:include="teacher/teacher-common::commonFooter"></div>
+<script th:src="@{static/js/echarts.js}"></script>
+<script>
+    var examDate = [[${examDate}]];
+    var averageScores = [[${averageScores}]];
+    var myChart = echarts.init(document.getElementById("averageScore"));
+    var option = {
+        title:{
+            text:"Average Score"
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['考试时间']
+        },
+
+        xAxis : {
+            data : examDate
+        },
+        yAxis :{},
+        series : [
+            {
+                name: '成绩',
+                type: 'line',
+                data: averageScores
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+</script>
 </body>
+<!--script-->
 </html>
+

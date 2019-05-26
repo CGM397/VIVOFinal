@@ -2,6 +2,8 @@ package edu.nju.vivofinal.controller;
 
 import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.service.ParentInfoService;
+import edu.nju.vivofinal.service.StatisticsService;
+import edu.nju.vivofinal.statistics.StudentScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +13,8 @@ public class ParentController {
 
     @Autowired
     private ParentInfoService parentInfoService;
+    @Autowired
+    private StatisticsService statisticsService;
 
     @PostMapping(value = "/update")
     @ResponseBody
@@ -40,6 +44,12 @@ public class ParentController {
     @ResponseBody
     public boolean disagreeApplication(@RequestParam long applicationId) {
         return parentInfoService.disagreeApplication(applicationId);
+    }
+
+    @PostMapping(value = "/showStudentScores")
+    @ResponseBody
+    public StudentScore showStudentScores(@RequestParam String parentMail) {
+        return statisticsService.showStudentScores(parentMail);
     }
 
 }

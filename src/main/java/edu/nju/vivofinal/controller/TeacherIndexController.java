@@ -1,7 +1,9 @@
 package edu.nju.vivofinal.controller;
 
 import edu.nju.vivofinal.model.Teacher;
+import edu.nju.vivofinal.service.StatisticsService;
 import edu.nju.vivofinal.service.TeacherInfoService;
+import edu.nju.vivofinal.statistics.AverageScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.io.IOException;
 public class TeacherIndexController {
     @Autowired
     TeacherInfoService teacherInfoServiceImpl;
+    @Autowired
+    StatisticsService statisticsService;
 
     @RequestMapping("/teacherHome")
     public String teacherHome(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
@@ -33,7 +37,6 @@ public class TeacherIndexController {
         Teacher t=teacherInfoServiceImpl.findTeacherInfoByMail(email);
         model.addAttribute("teacher",t);
         model.addAttribute("percent",t.getInfoCompleteDegree());
-        System.out.println(t.getTeacherPassword());
         return "teacher/teacher-info";
     }
 
@@ -48,7 +51,11 @@ public class TeacherIndexController {
     }
 
     @RequestMapping("/teacherStatistics")
-    public String teacherStatistics(){
+    public String teacherStatistics(HttpServletRequest request, Model model){
+        String email = (String)request.getSession(true).getAttribute("email");
+        AverageScore averageScore = statisticsService.showAverageScores(email);
+        model.addAttribute("examDate", averageScore.getExamDate());
+        model.addAttribute("averageScores", averageScore.getAverageScores());
         return "teacher/teacher-statistics";
     }
 
