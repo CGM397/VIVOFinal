@@ -4,9 +4,9 @@ import edu.nju.vivofinal.model.Parent;
 
 public interface ParentInfoService {
 
-    void saveParentInfo(Parent parent);
+    boolean updateParentInfo(Parent parent);
 
-    boolean bindToTeacher(long parentId, long teacherId);
+    boolean bindToTeacher(String parentMail, String teacherMail);
 
     Parent findParentByMail(String parentMail);
 

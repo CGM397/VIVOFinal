@@ -4,7 +4,7 @@ import edu.nju.vivofinal.model.Teacher;
 
 public interface TeacherInfoService {
 
-    void saveTeacherInfo(Teacher teacher);
+    void updateTeacherInfo(Teacher teacher);
 
     Teacher findTeacherInfoByMail(String teacherMail);
 

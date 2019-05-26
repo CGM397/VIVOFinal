@@ -22,15 +22,20 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     private TeacherInfoDao teacherInfoDao;
 
     @Override
-    public void saveParentInfo(Parent parent) {
-        parentInfoDao.saveParentInfo(parent);
+    public boolean updateParentInfo(Parent parent) {
+        List<Parent> parentList = parentInfoDao.findAllParents();
+        for(Parent one : parentList){
+            if(one.getStudentId().equals(parent.getStudentId()))
+                return false;
+        }
+        return parentInfoDao.updateParentInfo(parent);
     }
 
     @Override
-    public boolean bindToTeacher(long parentId, long teacherId) {
+    public boolean bindToTeacher(String parentMail, String teacherMail) {
         boolean res;
-        Parent parent = parentInfoDao.findParentById(parentId);
-        Teacher teacher = teacherInfoDao.findTeacherById(teacherId);
+        Parent parent = parentInfoDao.findParentByMail(parentMail);
+        Teacher teacher = teacherInfoDao.findTeacherByMail(teacherMail);
 
         if(teacher == null || teacher.getTeacherPassword() == null){
             return false;

@@ -13,8 +13,8 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     private TeacherInfoDao teacherInfoDao;
 
     @Override
-    public void saveTeacherInfo(Teacher teacher) {
-        teacherInfoDao.saveTeacherInfo(teacher);
+    public void updateTeacherInfo(Teacher teacher) {
+        teacherInfoDao.updateTeacherInfo(teacher);
     }
 
     @Override
