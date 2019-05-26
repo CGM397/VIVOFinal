@@ -63,7 +63,7 @@ public class IndexControllerTest {
     public void test3()  throws Throwable  {
         IndexController indexController0 = new IndexController();
         String string0 = indexController0.cstLogin();
-        assertEquals("login/csLogin", string0);
+        assertEquals("login/cstLogin", string0);
     }
 
     @Test(timeout = 4000)
