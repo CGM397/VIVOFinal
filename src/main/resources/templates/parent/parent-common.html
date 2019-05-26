@@ -157,7 +157,7 @@
                         <img class="nav-user-photo" th:src="@{/static/avatars/user.jpg}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>Welcome,</small>
-									<span th:text="${#session.getAttribute('account')}">Jason</span>
+									<span th:text="${#session.getAttribute('email')}">Jason</span>
 								</span>
 
                         <i class="icon-caret-down"></i>
@@ -184,15 +184,6 @@
                             <a href="#" onclick="logout()">
                                 <i class="icon-off"></i>
                                 登出
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="#" onclick="writeOff()">
-                                <i class="icon-trash red"></i>
-                                注销账号
                             </a>
                         </li>
                     </ul>
@@ -375,9 +366,9 @@
         function logout(){
             $.ajax({
                 type: 'POST',
-                url: "/yummy/loginAndRegister/cstLogout",
+                url: "/registerLogin/logout",
                 success:function(result) {
-                    window.location.href="/yummy/cstLogin";
+                    window.location.href="parentLogin";
                 },
                 error: function (result) {
                     bootbox.alert("error!");

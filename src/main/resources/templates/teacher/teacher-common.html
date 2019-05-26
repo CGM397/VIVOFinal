@@ -157,7 +157,7 @@
                         <img class="nav-user-photo" th:src="@{/static/avatars/user.jpg}" alt="Jason's Photo" />
                         <span class="user-info">
 									<small>Welcome,</small>
-									<span th:text="${#session.getAttribute('account')}">Jason</span>
+									<span th:text="${#session.getAttribute('email')}">Jason</span>
 								</span>
 
                         <i class="icon-caret-down"></i>
@@ -270,37 +270,26 @@
                 </li>
 
                 <li th:class="${active}=='teacher-notice'?'active open':''">
-                    <a href="/teacherNotice">
+                    <a href="#" class="dropdown-toggle">
                         <i class="icon-comments-alt"></i>
                         <span class="menu-text"> 通知发送 </span>
+                        <b class="arrow icon-angle-down"></b>
                     </a>
 
-                    <!--<ul class="submenu">
+                    <ul class="submenu">
                         <li>
-                            <a href="/yummy/cstOrderListUnpaid">
+                            <a href="/teacherScoreNotice">
                                 <i class="icon-double-angle-right"></i>
-                                待支付
+                                成绩通知
                             </a>
                         </li>
                         <li>
-                            <a href="/yummy/cstOrderListPaid">
+                            <a href="/teacherCommonNotice">
                                 <i class="icon-double-angle-right"></i>
-                                进行中
+                                公告通知
                             </a>
                         </li>
-                        <li>
-                            <a href="/yummy/cstOrderListCompleted">
-                                <i class="icon-double-angle-right"></i>
-                                已完成
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/yummy/cstOrderListReturned">
-                                <i class="icon-double-angle-right"></i>
-                                已退订
-                            </a>
-                        </li>
-                    </ul>-->
+                    </ul>
                 </li>
 
                 <li th:class="${active}=='teacher-statistics'?'active open':''">
@@ -374,9 +363,9 @@
         function logout(){
             $.ajax({
                 type: 'POST',
-                url: "/yummy/loginAndRegister/cstLogout",
+                url: "/registerLogin/logout",
                 success:function(result) {
-                    window.location.href="/yummy/cstLogin";
+                    window.location.href="teacherLogin";
                 },
                 error: function (result) {
                     bootbox.alert("error!");
