@@ -60,3 +60,15 @@ CREATE TABLE `specificNotice` (
     `context` VARCHAR(1024),
     PRIMARY KEY (`specificNoticeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+DROP TABLE IF EXISTS `application`;
+CREATE TABLE `application` (
+    `applicationId` INT,
+    `teacherMail` VARCHAR(64),
+    `parentId` INT,
+    `parentName` VARCHAR(64),
+    `studentId` VARCHAR(64),
+    `studentName` VARCHAR(64),
+    `checked` BOOLEAN,
+    PRIMARY KEY (`applicationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;

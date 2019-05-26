@@ -4,18 +4,14 @@ import edu.nju.vivofinal.dao.CommonNoticeDao;
 import edu.nju.vivofinal.dao.ParentInfoDao;
 import edu.nju.vivofinal.dao.SpecificNoticeDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
-import edu.nju.vivofinal.model.CommonNotice;
-import edu.nju.vivofinal.model.Parent;
-import edu.nju.vivofinal.model.SpecificNotice;
+import edu.nju.vivofinal.model.*;
 import edu.nju.vivofinal.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -54,7 +50,8 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public boolean sendOneSpecificNotice(long teacherId, long parentId, String title, String context) {
+    public boolean sendOneSpecificNotice(long teacherId, long parentId,
+                                         String title, String context) {
 
         Parent parent = parentInfoDao.findParentById(parentId);
         SimpleMailMessage message = new SimpleMailMessage();
@@ -72,6 +69,10 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public boolean sendSomeSpecificNotices(long teacherId, List<Long> parentIds,
                                            String title, String context) {
+        if (parentIds == null){
+            return false;
+        }
+
         boolean res = true;
         String[] storeMails = new String[parentIds.size()];
 
@@ -95,7 +96,35 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public boolean sendExamScore() {
-        return false;
+    public boolean sendExamScore(long teacherId, ExamScore examScore) {
+        boolean res = true;
+        Teacher teacher = teacherInfoDao.findTeacherById(teacherId);
+        Set<ExamScore> examScoreList = teacher.getExamScores();
+        if(examScoreList == null) {
+            examScoreList = new HashSet<>();
+        }
+        examScoreList.add(examScore);
+        teacher.setExamScores(examScoreList);
+        teacherInfoDao.updateTeacherInfo(teacher);
+
+        Date sendTime = examScore.getExamTime();
+        List<ScoreItem> items = examScore.getItems();
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(FROM_MAIL);
+        for(ScoreItem one : items) {
+            Parent parent = parentInfoDao.findParentByStudentId(one.getStudentId());
+            if(parent != null && parent.getParentMail() != null) {
+                String title = "考试："+examScore.getExamName() + " 学生成绩";
+                String context = "得分：" + one.getExamScore();
+                message.setTo(parent.getParentMail());
+                message.setSubject(title);
+                message.setText(context);
+                mailSender.send(message);
+                SpecificNotice specificNotice = new SpecificNotice(sendTime,
+                        teacher.getTeacherId(), parent.getParentId(), title, context);
+                res &= specificNoticeDao.saveSpecificNotice(specificNotice);
+            }
+        }
+        return res;
     }
 }

@@ -1,5 +1,7 @@
 package edu.nju.vivofinal.service;
 
+import edu.nju.vivofinal.model.ExamScore;
+
 import java.util.List;
 
 public interface NoticeService {
@@ -10,5 +12,5 @@ public interface NoticeService {
 
     boolean sendSomeSpecificNotices(long teacherId, List<Long> parentIds, String title, String context);
 
-    boolean sendExamScore();
+    boolean sendExamScore(long teacherId, ExamScore examScore);
 }

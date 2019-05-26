@@ -19,4 +19,6 @@ public interface ParentInfoDao {
     List<Parent> findAllParentsByTeacherId(long teacherId);
 
     List<Parent> findAllParents();
+
+    Parent findParentByStudentId(String studentId);
 }

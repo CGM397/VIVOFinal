@@ -8,4 +8,6 @@ public interface TeacherInfoService {
 
     Teacher findTeacherInfoByMail(String teacherMail);
 
+    Teacher findTeacherByParentMail(String parentMail);
+
 }

@@ -30,9 +30,4 @@ public class ParentController {
         return parentInfoService.findParentByMail(parentMail);
     }
 
-    @PostMapping(value = "/bindToTeacher")
-    @ResponseBody
-    public boolean bindToTeacher(@RequestParam String parentMail, @RequestParam String teacherMail){
-        return parentInfoService.bindToTeacher(parentMail, teacherMail);
-    }
 }

@@ -1,8 +1,8 @@
 package edu.nju.vivofinal.daoimpl;
 
+import edu.nju.vivofinal.dao.ApplicationDao;
 import edu.nju.vivofinal.dao.BaseDao;
-import edu.nju.vivofinal.dao.TeacherInfoDao;
-import edu.nju.vivofinal.model.Teacher;
+import edu.nju.vivofinal.model.Application;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -11,11 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public class TeacherInfoDaoImpl implements TeacherInfoDao {
+public class ApplicationDaoImpl implements ApplicationDao {
 
     @Autowired
     private BaseDao baseDao;
@@ -23,44 +24,34 @@ public class TeacherInfoDaoImpl implements TeacherInfoDao {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @Override
-    public boolean saveTeacherInfo(Teacher teacher) {
-        return baseDao.save(teacher);
+    public boolean saveApplication(Application application) {
+        return baseDao.save(application);
     }
 
     @Override
-    public boolean updateTeacherInfo(Teacher teacher) {
-        return baseDao.update(teacher);
+    public boolean updateApplication(Application application) {
+        return baseDao.update(application);
     }
 
     @Override
-    public boolean deleteTeacherInfo(long teacherId) {
-        return baseDao.delete(Teacher.class, teacherId);
+    public Application findApplicationById(long applicationId) {
+        return (Application) baseDao.findById(Application.class, applicationId);
     }
 
     @Override
-    public Teacher findTeacherById(long teacherId) {
-        return (Teacher) baseDao.findById(Teacher.class, teacherId);
-    }
-
-    @Override
-    public Teacher findTeacherByMail(String teacherMail) {
-        Teacher res = null;
+    public List<Application> findApplicationsByTeacherMail(String teacherMail) {
+        List<Application> res = new ArrayList<>();
         try (Session session = baseDao.getSession()) {
             Transaction transaction = session.beginTransaction();
-            String hql = "select t from Teacher t where t.teacherMail = ?1";
+            String hql = "select a from Application a where a.teacherMail = ?1 and a.checked = false";
             Query query = session.createQuery(hql);
             query.setParameter(1, teacherMail);
             if(!query.list().isEmpty())
-                res = (Teacher) query.list().get(0);
+                res =(List<Application>) query.list();
             transaction.commit();
         } catch (Exception e) {
             logger.error(new Date().toString() + ": ", e);
         }
         return res;
-    }
-
-    @Override
-    public List<Teacher> findAllTeachers() {
-        return (List<Teacher>) baseDao.getAllList(Teacher.class);
     }
 }
