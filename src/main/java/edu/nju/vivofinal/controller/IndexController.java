@@ -11,23 +11,61 @@ import java.io.IOException;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/cstlogin")
-    public String cstLogin(){
-        return "login/cstLogin";
+    @RequestMapping("/parentLogin")
+    public String parentLogin(){
+        return "login/parentLogin";
     }
 
-    @RequestMapping("/rstlogin")
-    public String retLogin(){
-        return "login/rstLogin";
+    @RequestMapping("/teacherLogin")
+    public String teacherLogin(){
+        return "login/teacherLogin";
     }
 
-    @RequestMapping("/customer-home")
-    public String customerHome(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @RequestMapping("/parentHome")
+    public String parentHome(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(false);
         if(session == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/parentlogin");
             return null;
         }
-        return "customer/cstHome";
+        return "parent/parent-home";
     }
+
+    @RequestMapping("/parentInfo")
+    public String parentInfo(){
+        return "parent/parent-info";
+    }
+
+    @RequestMapping("/parentScore")
+    public String parentScore(){
+        return "parent/parent-score";
+    }
+
+    @RequestMapping("/teacherHome")
+    public String teacherHome(){
+        return "teacher/teacher-home";
+    }
+
+    @RequestMapping("/teacherInfo")
+    public String teacherInfo(){
+        return "teacher/teacher-info";
+    }
+
+    @RequestMapping("/teacherNotice")
+    public String teacherNotice(){
+        return "teacher/teacher-notice";
+    }
+
+    @RequestMapping("/teacherStudents")
+    public String teacherStudents(){
+        return "teacher/teacher-students";
+    }
+
+    @RequestMapping("/teacherStatistics")
+    public String teacherStatistics(){
+        return "teacher/teacher-statistics";
+    }
+
+
+
 }

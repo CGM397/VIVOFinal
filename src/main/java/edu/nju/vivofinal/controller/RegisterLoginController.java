@@ -16,26 +16,24 @@ public class RegisterLoginController {
 
     @PostMapping(value = "/sendMail")
     @ResponseBody
-    public String sendMail(@RequestParam String customerMail){
-        return registerLoginService.sendMail(customerMail);
+    public String sendMail(@RequestParam String userMail){
+        return registerLoginService.sendMail(userMail);
     }
 
-    @PostMapping(value = "/customerRegister")
+    @PostMapping(value = "/parentRegister")
     @ResponseBody
-    public boolean customerRegister(@RequestParam String customerMail,
-                                    @RequestParam String customerPassword,
-                                    @RequestParam String customerName,
-                                    @RequestParam String phoneNumber){
-        return registerLoginService.customerRegister(customerMail, customerPassword,
-                customerName, phoneNumber);
+    public boolean parentRegister(@RequestParam String parentMail,
+                                    @RequestParam String parentPassword){
+        return registerLoginService.parentRegister(parentMail, parentPassword);
     }
 
-    @PostMapping(value = "/restaurantRegister")
+    @PostMapping(value = "/teacherRegister")
     @ResponseBody
-    public String restaurantRegister(@RequestParam String restaurantName,
-                                      @RequestParam String restaurantPassword){
-        return registerLoginService.restaurantRegister(restaurantName, restaurantPassword);
+    public boolean teacherRegister(@RequestParam String teacherMail,
+                                      @RequestParam String teacherPassword){
+        return registerLoginService.teacherRegister(teacherMail, teacherPassword);
     }
+
 
     @PostMapping(value = "/login")
     @ResponseBody
