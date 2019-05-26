@@ -49,7 +49,7 @@ public class ParentInfoDaoImpl implements ParentInfoDao {
 
     @Override
     public Parent findParentByMail(String parentMail) {
-        Parent res = new Parent();
+        Parent res = null;
         try (Session session = baseDao.getSession()) {
             Transaction transaction = session.beginTransaction();
             String hql = "select p from Parent p where p.parentMail = ?1";
@@ -72,5 +72,22 @@ public class ParentInfoDaoImpl implements ParentInfoDao {
     @Override
     public List<Parent> findAllParents() {
         return (List<Parent>) baseDao.getAllList(Parent.class);
+    }
+
+    @Override
+    public Parent findParentByStudentId(String studentId) {
+        Parent res = null;
+        try (Session session = baseDao.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            String hql = "select p from Parent p where p.studentId = ?1";
+            Query query = session.createQuery(hql);
+            query.setParameter(1, studentId);
+            if(!query.list().isEmpty())
+                res = (Parent) query.list().get(0);
+            transaction.commit();
+        } catch (Exception e) {
+            logger.error(new Date().toString() + ": ", e);
+        }
+        return res;
     }
 }

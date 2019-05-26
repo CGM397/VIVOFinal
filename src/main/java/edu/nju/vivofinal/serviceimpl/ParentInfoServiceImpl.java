@@ -1,7 +1,9 @@
 package edu.nju.vivofinal.serviceimpl;
 
+import edu.nju.vivofinal.dao.ApplicationDao;
 import edu.nju.vivofinal.dao.ParentInfoDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
+import edu.nju.vivofinal.model.Application;
 import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.ParentInfoService;
@@ -20,6 +22,8 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     private ParentInfoDao parentInfoDao;
     @Autowired
     private TeacherInfoDao teacherInfoDao;
+    @Autowired
+    private ApplicationDao applicationDao;
 
     @Override
     public boolean updateParentInfo(Parent parent) {
@@ -31,10 +35,9 @@ public class ParentInfoServiceImpl implements ParentInfoService {
         return parentInfoDao.updateParentInfo(parent);
     }
 
-    @Override
-    public boolean bindToTeacher(String parentMail, String teacherMail) {
+    private boolean bindToTeacher(long parentId, String teacherMail) {
         boolean res;
-        Parent parent = parentInfoDao.findParentByMail(parentMail);
+        Parent parent = parentInfoDao.findParentById(parentId);
         Teacher teacher = teacherInfoDao.findTeacherByMail(teacherMail);
 
         if(teacher == null || teacher.getTeacherPassword() == null){
@@ -64,5 +67,33 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     @Override
     public Parent findParentByMail(String parentMail) {
         return parentInfoDao.findParentByMail(parentMail);
+    }
+
+    @Override
+    public boolean applyToJoinClass(String parentMail, String teacherMail) {
+        Parent parent = parentInfoDao.findParentByMail(parentMail);
+        Teacher teacher = teacherInfoDao.findTeacherByMail(teacherMail);
+        if(teacher == null ||parent == null ||
+                teacher.getTeacherPassword() == null || parent.getParentPassword() == null)
+            return false;
+        Application application = new Application(teacherMail, parent.getParentId(),
+                parent.getParentName(), parent.getStudentId(), parent.getStudentName(),
+                false);
+        return applicationDao.saveApplication(application);
+    }
+
+    @Override
+    public boolean agreeApplication(long applicationId) {
+        Application application = applicationDao.findApplicationById(applicationId);
+        application.setChecked(true);
+        applicationDao.updateApplication(application);
+        return bindToTeacher(application.getParentId(), application.getTeacherMail());
+    }
+
+    @Override
+    public boolean disagreeApplication(long applicationId) {
+        Application application = applicationDao.findApplicationById(applicationId);
+        application.setChecked(true);
+        return applicationDao.updateApplication(application);
     }
 }

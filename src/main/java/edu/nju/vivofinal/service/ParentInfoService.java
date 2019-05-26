@@ -6,8 +6,11 @@ public interface ParentInfoService {
 
     boolean updateParentInfo(Parent parent);
 
-    boolean bindToTeacher(String parentMail, String teacherMail);
-
     Parent findParentByMail(String parentMail);
 
+    boolean applyToJoinClass(String parentMail, String teacherMail);
+
+    boolean agreeApplication(long applicationId);
+
+    boolean disagreeApplication(long applicationId);
 }
