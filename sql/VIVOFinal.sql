@@ -8,6 +8,7 @@ CREATE TABLE `parent` (
     `parentName` VARCHAR(64),
     `parentMail` VARCHAR(64),
     `parentPassword` VARCHAR(64),
+    `parentPhoneNumber` VARCHAR(64),
     `studentId` VARCHAR(64),
     `studentName` VARCHAR(64),
     PRIMARY KEY (`parentId`)
@@ -19,6 +20,7 @@ CREATE TABLE `teacher` (
     `teacherName` VARCHAR(64),
     `teacherMail` VARCHAR(64),
     `teacherPassword` VARCHAR(64),
+    `teacherPhoneNumber` VARCHAR(64),
     PRIMARY KEY (`teacherId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
@@ -36,4 +38,25 @@ CREATE TABLE `scoreItem` (
     `studentId` VARCHAR(64),
     `examScore` DOUBLE(32, 2),
     PRIMARY KEY (`scoreItemId`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+DROP TABLE IF EXISTS `commonNotice`;
+CREATE TABLE `commonNotice` (
+    `commonNoticeId` INT,
+    `commonNoticeTime` DATE,
+    `teacherId` INT,
+    `title` VARCHAR(255),
+    `context` VARCHAR(1024),
+    PRIMARY KEY (`commonNoticeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+DROP TABLE IF EXISTS `specificNotice`;
+CREATE TABLE `specificNotice` (
+    `specificNoticeId` INT,
+    `specificNoticeTime` DATE,
+    `teacherId` INT,
+    `parentId` INT,
+    `title` VARCHAR(255),
+    `context` VARCHAR(1024),
+    PRIMARY KEY (`specificNoticeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;

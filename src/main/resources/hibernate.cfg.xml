@@ -17,5 +17,7 @@
     <mapping class="edu.nju.vivofinal.model.Parent"/>
     <mapping class="edu.nju.vivofinal.model.ExamScore"/>
     <mapping class="edu.nju.vivofinal.model.ScoreItem"/>
+    <mapping class="edu.nju.vivofinal.model.CommonNotice"/>
+    <mapping class="edu.nju.vivofinal.model.SpecificNotice"/>
   </session-factory>
 </hibernate-configuration>
