@@ -11,7 +11,7 @@ import java.io.IOException;
 @Controller
 public class LoginIndexController {
 
-    @RequestMapping("/parentLogin")
+    @RequestMapping("/")
     public String parentLogin(){
         return "login/parentLogin";
     }

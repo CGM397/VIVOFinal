@@ -32,7 +32,7 @@
                 <input type="password" id="password_signin" readonly onfocus="this.removeAttribute('readonly');" required autocomplete="off" />
             </div>
             <p class="forgot">
-                <a href="/parentLogin">Parent Login</a>
+                <a href="/">Parent Login</a>
             </p>
             <button id="submit_signin" class="button button-block">Log In</button>
         </div>
@@ -62,14 +62,16 @@
                 <label>
                     Verification code<span class="req">*</span>
                 </label>
-                <input type="text" id="vertification_signup" required autocomplete="off" />
+                <div style="text-align: left">
+                    <input type="text" id="vertification_signup" required autocomplete="off" style="display: inline-block;max-width: 270px;text-align: left"/>
+                    <button id="sendEmail" class="btn btn-primary pull-right mt-4 mb-4" style="display: inline">
+                        <i class="icon-beaker align-top bigger-125"></i>
+                        发送验证码
+                    </button>
+                </div>
             </div>
             <div>
-                <button id="sendEmail" class="button button-sendMail pull-left">
-                    <i class="icon-beaker align-top bigger-125"></i>
-                    发送验证码
-                </button>
-                <button id="submit_signup" class="button button-sendMail pull-right">Get Started</button>
+                <button id="submit_signup" class="button button-block ">Get Started</button>
             </div>
         </div>
     </div>

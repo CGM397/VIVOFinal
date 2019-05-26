@@ -23,7 +23,7 @@ public class ParentIndexController {
     public String parentHome(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(false);
         if(session == null) {
-            response.sendRedirect("/parentLogin");
+            response.sendRedirect("/");
             return null;
         }
         return "parent/parent-home";
