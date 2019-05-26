@@ -7,6 +7,7 @@ import edu.nju.vivofinal.model.ExamScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -40,6 +41,6 @@ public class ExamScoreDaoImpl implements ExamScoreDao {
 
     @Override
     public List<ExamScore> findAllExamScores(long teacherId) {
-        return teacherInfoDao.findTeacherById(teacherId).getExamScores();
+        return new ArrayList<>(teacherInfoDao.findTeacherById(teacherId).getExamScores());
     }
 }

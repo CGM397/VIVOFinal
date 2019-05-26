@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
@@ -22,16 +22,16 @@ public class Teacher implements Serializable {
     private String teacherPassword;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private List<Parent> parents;
+    private Set<Parent> parents;
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private List<ExamScore> examScores;
+    private Set<ExamScore> examScores;
 
     public Teacher() {
     }
 
     public Teacher(String teacherName, String teacherMail, String teacherPassword,
-                   List<Parent> parents, List<ExamScore> examScores) {
+                   Set<Parent> parents, Set<ExamScore> examScores) {
         this.teacherName = teacherName;
         this.teacherMail = teacherMail;
         this.teacherPassword = teacherPassword;
@@ -71,19 +71,19 @@ public class Teacher implements Serializable {
         this.teacherPassword = teacherPassword;
     }
 
-    public List<Parent> getParents() {
+    public Set<Parent> getParents() {
         return parents;
     }
 
-    public void setParents(List<Parent> parents) {
+    public void setParents(Set<Parent> parents) {
         this.parents = parents;
     }
 
-    public List<ExamScore> getExamScores() {
+    public Set<ExamScore> getExamScores() {
         return examScores;
     }
 
-    public void setExamScores(List<ExamScore> examScores) {
+    public void setExamScores(Set<ExamScore> examScores) {
         this.examScores = examScores;
     }
 }
