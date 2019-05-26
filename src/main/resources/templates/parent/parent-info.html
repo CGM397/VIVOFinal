@@ -244,7 +244,7 @@
                 if(result==true) {
                     bootbox.alert("绑定申请已发送");
                 }else{
-                    bootbox.alert("不存在该教师");
+                    bootbox.alert("不存在该教师或资料不完整");
                 }
                 $("#myModal").modal("hide");
             },
@@ -384,7 +384,7 @@
             contentType: "application/json",
             data: JSON.stringify(parent),
             success:function(result) {
-                if(result=true) {
+                if(result==true) {
                     window.location.reload();
                 }else{
                     bootbox.alert("该学号已注册！");

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Entity
 @Table
 @Repository
-public class Application implements Serializable {
+public class ParentApplication implements Serializable {
 
     @Id
     @GeneratedValue
@@ -29,11 +29,11 @@ public class Application implements Serializable {
 
     private boolean checked;
 
-    public Application() {
+    public ParentApplication() {
     }
 
-    public Application(String teacherMail, long parentId, String parentName,
-                       String studentId, String studentName, boolean checked) {
+    public ParentApplication(String teacherMail, long parentId, String parentName,
+                             String studentId, String studentName, boolean checked) {
         this.teacherMail = teacherMail;
         this.parentId = parentId;
         this.parentName = parentName;

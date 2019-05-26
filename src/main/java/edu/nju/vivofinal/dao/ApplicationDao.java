@@ -1,16 +1,16 @@
 package edu.nju.vivofinal.dao;
 
-import edu.nju.vivofinal.model.Application;
+import edu.nju.vivofinal.model.ParentApplication;
 
 import java.util.List;
 
 public interface ApplicationDao {
 
-    boolean saveApplication(Application application);
+    boolean saveApplication(ParentApplication parentApplication);
 
-    boolean updateApplication(Application application);
+    boolean updateApplication(ParentApplication parentApplication);
 
-    Application findApplicationById(long applicationId);
+    ParentApplication findApplicationById(long applicationId);
 
-    List<Application> findApplicationsByTeacherMail(String teacherMail);
+    List<ParentApplication> findApplicationsByTeacherMail(String teacherMail);
 }

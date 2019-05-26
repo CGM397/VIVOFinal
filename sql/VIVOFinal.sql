@@ -61,8 +61,8 @@ CREATE TABLE `specificNotice` (
     PRIMARY KEY (`specificNoticeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
-DROP TABLE IF EXISTS `application`;
-CREATE TABLE `application` (
+DROP TABLE IF EXISTS `parentApplication`;
+CREATE TABLE `parentApplication` (
     `applicationId` INT,
     `teacherMail` VARCHAR(64),
     `parentId` INT,

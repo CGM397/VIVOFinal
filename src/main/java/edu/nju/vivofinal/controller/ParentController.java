@@ -20,8 +20,8 @@ public class ParentController {
 
     @PostMapping(value = "/update")
     @ResponseBody
-    public void update(@RequestBody Parent parent){
-        parentInfoService.updateParentInfo(parent);
+    public boolean update(@RequestBody Parent parent) {
+        return parentInfoService.updateParentInfo(parent);
     }
 
     @PostMapping(value = "/findByMail")

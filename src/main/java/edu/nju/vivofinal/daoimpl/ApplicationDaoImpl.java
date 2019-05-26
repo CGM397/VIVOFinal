@@ -2,7 +2,7 @@ package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.ApplicationDao;
 import edu.nju.vivofinal.dao.BaseDao;
-import edu.nju.vivofinal.model.Application;
+import edu.nju.vivofinal.model.ParentApplication;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -24,30 +24,30 @@ public class ApplicationDaoImpl implements ApplicationDao {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @Override
-    public boolean saveApplication(Application application) {
-        return baseDao.save(application);
+    public boolean saveApplication(ParentApplication parentApplication) {
+        return baseDao.save(parentApplication);
     }
 
     @Override
-    public boolean updateApplication(Application application) {
-        return baseDao.update(application);
+    public boolean updateApplication(ParentApplication parentApplication) {
+        return baseDao.update(parentApplication);
     }
 
     @Override
-    public Application findApplicationById(long applicationId) {
-        return (Application) baseDao.findById(Application.class, applicationId);
+    public ParentApplication findApplicationById(long applicationId) {
+        return (ParentApplication) baseDao.findById(ParentApplication.class, applicationId);
     }
 
     @Override
-    public List<Application> findApplicationsByTeacherMail(String teacherMail) {
-        List<Application> res = new ArrayList<>();
+    public List<ParentApplication> findApplicationsByTeacherMail(String teacherMail) {
+        List<ParentApplication> res = new ArrayList<>();
         try (Session session = baseDao.getSession()) {
             Transaction transaction = session.beginTransaction();
-            String hql = "select a from Application a where a.teacherMail = ?1 and a.checked = false";
+            String hql = "select a from ParentApplication a where a.teacherMail = ?1 and a.checked = false";
             Query query = session.createQuery(hql);
             query.setParameter(1, teacherMail);
             if(!query.list().isEmpty())
-                res =(List<Application>) query.list();
+                res =(List<ParentApplication>) query.list();
             transaction.commit();
         } catch (Exception e) {
             logger.error(new Date().toString() + ": ", e);

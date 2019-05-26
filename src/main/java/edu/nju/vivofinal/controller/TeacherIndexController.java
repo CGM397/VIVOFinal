@@ -68,4 +68,11 @@ public class TeacherIndexController {
     public String teacherScoreNotice(){
         return "teacher/teacher-scoreNotice";
     }
+
+    @RequestMapping("/teacherApprove")
+    public String teacherScoreNotice(HttpServletRequest request, Model model){
+        String email = (String)request.getSession(true).getAttribute("email");
+        model.addAttribute("applications", teacherInfoServiceImpl.showAllApplications(email));
+        return "teacher/teacher-approve";
+    }
 }

@@ -3,7 +3,7 @@ package edu.nju.vivofinal.serviceimpl;
 import edu.nju.vivofinal.dao.ApplicationDao;
 import edu.nju.vivofinal.dao.ParentInfoDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
-import edu.nju.vivofinal.model.Application;
+import edu.nju.vivofinal.model.ParentApplication;
 import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.ParentInfoService;
@@ -28,8 +28,8 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     @Override
     public boolean updateParentInfo(Parent parent) {
         List<Parent> parentList = parentInfoDao.findAllParents();
-        for(Parent one : parentList){
-            if(one.getStudentId().equals(parent.getStudentId()))
+        for(Parent one : parentList) {
+            if(one.getStudentId() != null && one.getStudentId().equals(parent.getStudentId()))
                 return false;
         }
         return parentInfoDao.updateParentInfo(parent);
@@ -76,24 +76,26 @@ public class ParentInfoServiceImpl implements ParentInfoService {
         if(teacher == null ||parent == null ||
                 teacher.getTeacherPassword() == null || parent.getParentPassword() == null)
             return false;
-        Application application = new Application(teacherMail, parent.getParentId(),
+        if(parent.getInfoCompleteDegree() < 100.0)
+            return false;
+        ParentApplication parentApplication = new ParentApplication(teacherMail, parent.getParentId(),
                 parent.getParentName(), parent.getStudentId(), parent.getStudentName(),
                 false);
-        return applicationDao.saveApplication(application);
+        return applicationDao.saveApplication(parentApplication);
     }
 
     @Override
     public boolean agreeApplication(long applicationId) {
-        Application application = applicationDao.findApplicationById(applicationId);
-        application.setChecked(true);
-        applicationDao.updateApplication(application);
-        return bindToTeacher(application.getParentId(), application.getTeacherMail());
+        ParentApplication parentApplication = applicationDao.findApplicationById(applicationId);
+        parentApplication.setChecked(true);
+        applicationDao.updateApplication(parentApplication);
+        return bindToTeacher(parentApplication.getParentId(), parentApplication.getTeacherMail());
     }
 
     @Override
     public boolean disagreeApplication(long applicationId) {
-        Application application = applicationDao.findApplicationById(applicationId);
-        application.setChecked(true);
-        return applicationDao.updateApplication(application);
+        ParentApplication parentApplication = applicationDao.findApplicationById(applicationId);
+        parentApplication.setChecked(true);
+        return applicationDao.updateApplication(parentApplication);
     }
 }

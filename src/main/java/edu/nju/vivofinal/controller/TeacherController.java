@@ -22,14 +22,23 @@ public class TeacherController {
 
     @PostMapping(value = "/update")
     @ResponseBody
-    public void update(@RequestBody Teacher teacher){
-        teacherInfoService.updateTeacherInfo(teacher);
+    public void update(@RequestBody Teacher teacher){ teacherInfoService.updateTeacherInfo(teacher);
     }
 
     @PostMapping(value = "/findByMail")
     @ResponseBody
     public Teacher findTeacherInfoByMail(@RequestParam String teacherMail) {
         return teacherInfoService.findTeacherInfoByMail(teacherMail);
+    }
+
+    @PostMapping(value = "/findNameByMail")
+    @ResponseBody
+    public String findNameByMail(@RequestParam String teacherMail) {
+        Teacher one = teacherInfoService.findTeacherInfoByMail(teacherMail);
+        if(one == null)
+            return "无";
+        else
+            return one.getTeacherName();
     }
 
     @PostMapping(value = "/findByParentMail")
