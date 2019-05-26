@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ParentInfoServiceImpl implements ParentInfoService {
@@ -30,6 +31,19 @@ public class ParentInfoServiceImpl implements ParentInfoService {
         boolean res;
         Parent parent = parentInfoDao.findParentById(parentId);
         Teacher teacher = teacherInfoDao.findTeacherById(teacherId);
+
+        if(teacher == null || teacher.getTeacherPassword() == null){
+            return false;
+        }
+
+        if(teacher.getParents() == null) {
+            Set<Parent> store = new HashSet<>();
+            store.add(parent);
+            teacher.setParents(store);
+            teacherInfoDao.updateTeacherInfo(teacher);
+            return true;
+        }
+
         List<Parent> parentList = new ArrayList<>(teacher.getParents());
         if (parentList.contains(parent)){
             res = false;

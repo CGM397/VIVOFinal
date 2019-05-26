@@ -12,7 +12,6 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     @Autowired
     private TeacherInfoDao teacherInfoDao;
 
-
     @Override
     public void saveTeacherInfo(Teacher teacher) {
         teacherInfoDao.saveTeacherInfo(teacher);
