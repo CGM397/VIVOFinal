@@ -40,19 +40,47 @@
                         发送成绩通知
                     </h1>
                 </div><!-- /.page-header -->
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div class="form-group">
-                            <span style="font-size: 18px">课程名：</span>
-                            <input id="lesson" type="text" class="form-control" placeholder="课程" >
-                        </div>
-                        <div class="form-group">
-                            <input id="time" type="date" class="form-control" placeholder="考试时间" >
-                        </div>
-                        <input multiple="" type="file" id="id-input-file-3"/>
-                    </div>
-                    <button class="btn-block btn btn-primary" onclick="importf()">确定提交</button>
-                </div>
+                                <div class="col-xs-12">
+                                    <!-- PAGE CONTENT BEGINS -->
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="widget-box">
+                                                <div class="widget-header">
+                                                    <h4>提交课程成绩</h4>
+
+                                                    <span class="widget-toolbar">
+														<a href="#" data-action="collapse">
+															<i class="icon-chevron-up"></i>
+														</a>
+
+														<a href="#" data-action="close">
+															<i class="icon-remove"></i>
+														</a>
+													</span>
+                                                </div>
+
+                                                <div class="widget-body">
+                                                    <div class="widget-main">
+                                                        <div class="form-group">
+                                                            <span style="font-size: 18px">课程名：</span>
+                                                            <input id="lesson" type="text" class="form-control" placeholder="课程" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <span style="font-size: 18px">考试时间：</span>
+                                                            <input id="time" type="date" class="form-control" placeholder="考试时间" >
+                                                        </div>
+                                                        <input multiple="" type="file" id="id-input-file-3"/>
+                                                    </div>
+                                                    <button class="btn-block btn btn-primary" onclick="importf()">确定提交</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="demo"></div>
+
+                </div><!-- /.main-container-inner -->
             </div>
         </div>
     </div>
