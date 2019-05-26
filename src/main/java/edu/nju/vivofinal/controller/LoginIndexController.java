@@ -11,6 +11,12 @@ import java.io.IOException;
 @Controller
 public class LoginIndexController {
 
+    @RequestMapping("")
+    public String login(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/parentLogin");
+        return null;
+    }
+
     @RequestMapping("/parentLogin")
     public String parentLogin(){
         return "login/parentLogin";
