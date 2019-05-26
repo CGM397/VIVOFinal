@@ -18,7 +18,7 @@
 
     <div class="tab-content">
         <div id="login">
-            <h1>Yummy Restaurant</h1>
+            <h1>Teacher Login</h1>
             <div class="field-wrap">
                 <label>
                     Email<span class="req">*</span>
@@ -90,8 +90,8 @@
                 password:password
             },
             success:function(result) {
-                if(result==true) {
-                    window.location.href = '/teacherHome';
+                if(result=="success") {
+                    window.location.href="/teacherHome"
                 }else{
                     bootbox.alert("用户名或密码错误");
                 }
@@ -115,7 +115,7 @@
             type: 'POST',
             url: "/registerLogin/sendMail",
             data: {
-                customerMail:email,
+                userMail:email,
             },
             success:function(result) {
                 if(result=="duplicate_mail"){
