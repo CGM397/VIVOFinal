@@ -1,6 +1,7 @@
 package edu.nju.vivofinal.serviceimpl;
 
 import edu.nju.vivofinal.VIVOFinalApplication;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
@@ -22,7 +23,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VIVOFinalApplication.class)
-public class CommonServiceImplTest {
+public class CommonServiceImplTest extends TestCase {
 
     @Test(timeout = 4000)
     public void test0()  throws Throwable  {

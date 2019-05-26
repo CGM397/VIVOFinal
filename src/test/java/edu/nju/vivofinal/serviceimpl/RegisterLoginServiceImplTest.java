@@ -6,6 +6,7 @@
 package edu.nju.vivofinal.serviceimpl;
 
 import edu.nju.vivofinal.VIVOFinalApplication;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
@@ -30,7 +31,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VIVOFinalApplication.class)
-public class RegisterLoginServiceImplTest{
+public class RegisterLoginServiceImplTest extends TestCase {
 
   @Test(timeout = 4000)
   public void test00()  throws Throwable  {

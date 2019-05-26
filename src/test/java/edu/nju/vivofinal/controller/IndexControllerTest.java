@@ -1,6 +1,7 @@
 package edu.nju.vivofinal.controller;
 
 import edu.nju.vivofinal.VIVOFinalApplication;
+import junit.framework.TestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
@@ -18,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VIVOFinalApplication.class)
-public class IndexControllerTest {
+public class IndexControllerTest extends TestCase {
 
     @Test(timeout = 4000)
     public void test0()  throws Throwable  {
@@ -63,7 +64,7 @@ public class IndexControllerTest {
     public void test3()  throws Throwable  {
         IndexController indexController0 = new IndexController();
         String string0 = indexController0.cstLogin();
-        assertEquals("login/csLogin", string0);
+        assertEquals("login/cstLogin", string0);
     }
 
     @Test(timeout = 4000)
