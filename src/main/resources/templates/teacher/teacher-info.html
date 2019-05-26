@@ -1,10 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="teacher/teacher-common::commonHeader">
 </head>
 <body>
+<div th:include="teacher/teacher-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
 
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div th:include="teacher/teacher-common::commonNav('teacher-info')" class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                </script>
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="/teacherHome">主页</a>
+                    </li>
+
+                    <li class="active">个人信息</li>
+                </ul>
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        会员信息
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="user-profile-3" class="user-profile row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <div class="well well-sm">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    &nbsp;
+                                    <div class="inline middle blue bigger-110"> 您的资料完整度为<span th:text="${percent}+'%'">0</span> </div>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <div style="width:200px;" th:attr="data-percent=${percent}" class="inline middle no-margin progress progress-striped active">
+                                        <div th:style="'width:'+${percent}+'%'" class="progress-bar progress-bar-success"></div>
+                                    </div>
+                                </div><!-- /well -->
+
+                                <div class="space"></div>
+
+                                <form class="form-horizontal" id="validation-form">
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs padding-16">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#edit-basic">
+                                                    <i class="green icon-edit bigger-125"></i>
+                                                    基本信息
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content profile-edit-tab-content">
+                                            <div id="edit-basic" class="tab-pane in active">
+                                                <h4 class="header blue bolder smaller">General</h4>
+                                                <div class="space-4"></div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="teacherMail">邮箱</label>
+
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input th:value="${teacher.teacherMail}" class="col-xs-12 col-sm-8" type="email" name="teacherMail" id="teacherMail" readonly/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="space-4"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="teacherPassword">密码</label>
+
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input th:value="${teacher.teacherPassword}" class="col-xs-12 col-sm-8" type="password" name="teacherPassword" id="teacherPassword"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="space-4"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="teacherName">姓名</label>
+
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input th:value="${teacher.teacherName}" class="col-xs-12 col-sm-8" type="text" name="teacherName" id="teacherName" placeholder="请填写您的姓名"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="space-4"></div>
+                                                    </div>
+                                                </div>
+
+                                                <h4 class="header blue bolder smaller">Contact</h4>
+
+                                                <div class="row">
+                                                    <div class="space-4"></div>
+
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="teacherPhone">电话</label>
+                                                            <div class="col-sm-8">
+                                                                <div class="clearfix">
+                                                                    <input th:value="${teacher.teacherPhoneNumber}" class="col-xs-12 col-sm-8" type="text" name="teacherPhone" id="teacherPhone"  placeholder="请填写您的电话"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-5 col-md-9">
+                                            <button id="submitInfo" class="btn btn-info" type="button">
+                                                <i class="icon-ok bigger-110"></i>
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div><!-- /span -->
+                        </div><!-- /user-profile -->
+                    </div>
+                </div>
+            </div><!--页面具体内容-->
+        </div>
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+<input th:value="${teacher.teacherId}" id="teacherId" type="text" style="display:none;"/>
+<div th:include="teacher/teacher-common::commonFooter"></div>
+<script th:src="@{static/js/jquery.validate.min.js}"></script>
 </body>
+<script type="text/javascript">
+    function Teacher(id,email,password,name,phone){
+        this.teacherId=id;
+        this.teacherMail=email;
+        this.teacherPassword=password;
+        this.teacherName=name;
+        this.teacherPhoneNumber=phone;
+    }
+    $('#validation-form').validate({
+        errorElement: 'div',
+        errorClass: 'help-block',
+        focusInvalid: false,
+        onclick:true,
+        rules: {
+            teacherMail: {
+                required: true,
+                email:true
+            },
+            teacherPassword: {
+                required: true,
+                minlength: 6
+            },
+            teacherName: {
+                required: true,
+                minlength:2
+            },
+            teacherPhone: {
+                required: true,
+                minlength:5
+            },
+        },
+        messages: {
+            teacherMail:{
+                required: "Please provide a valid email.",
+                email: "Please provide a valid email."
+            },
+            teacherName:{
+                required: "Please provide a name.",
+                minlength: "Please provide a valid name."
+            },
+            teacherPhone:{
+                required: "Please provide a phone.",
+                minlength: "Please provide a valid phone."
+            },
+        },
+        invalidHandler: function (event, validator) { //display error alert on form submit
+            $('.alert-danger', $('.login-form')).show();
+        },
+
+        highlight: function (e) {
+            $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+        },
+
+        success: function (e) {
+            $(e).closest('.form-group').removeClass('has-error').addClass('has-info');
+            $(e).remove();
+        },
+        errorPlacement: function (error, element) {
+            if(element.is(':checkbox') || element.is(':radio')) {
+                var controls = element.closest('div[class*="col-"]');
+                if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+            }
+            else if(element.is('.select2')) {
+                error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+            }
+            else if(element.is('.chosen-select')) {
+                error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+            }
+            else error.insertAfter(element.parent());
+        },
+        submitHandler: function (form) {
+        },
+        invalidHandler: function (form) {
+        }
+    });
+
+    document.getElementById("submitInfo").onclick=function(){
+        if(!$("#validation-form").valid()){
+            return;
+        }
+        var id=document.getElementById("teacherId").value;
+        var email=document.getElementById("teacherMail").value;
+        var password=document.getElementById("teacherPassword").value;
+        console.log(password);
+        var name=document.getElementById("teacherName").value;
+        var phone=document.getElementById("teacherPhone").value;
+
+        var teacher=new Teacher(id,email,password,name,phone);
+        $.ajax({
+            type: 'POST',
+            url: "teacher/update",
+            contentType: "application/json",
+            data: JSON.stringify(teacher),
+            success:function(result) {
+                window.location.reload();
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    };
+</script>
 </html>

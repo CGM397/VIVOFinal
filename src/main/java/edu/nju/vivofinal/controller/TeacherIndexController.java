@@ -1,6 +1,10 @@
 package edu.nju.vivofinal.controller;
 
+import edu.nju.vivofinal.model.Teacher;
+import edu.nju.vivofinal.service.TeacherInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,45 +13,27 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
-public class IndexController {
-
-    @RequestMapping("/parentLogin")
-    public String parentLogin(){
-        return "login/parentLogin";
-    }
-
-    @RequestMapping("/teacherLogin")
-    public String teacherLogin(){
-        return "login/teacherLogin";
-    }
-
-    @RequestMapping("/parentHome")
-    public String parentHome(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession(false);
-        if(session == null) {
-            response.sendRedirect("/parentlogin");
-            return null;
-        }
-        return "parent/parent-home";
-    }
-
-    @RequestMapping("/parentInfo")
-    public String parentInfo(){
-        return "parent/parent-info";
-    }
-
-    @RequestMapping("/parentScore")
-    public String parentScore(){
-        return "parent/parent-score";
-    }
+public class TeacherIndexController {
+    @Autowired
+    TeacherInfoService teacherInfoServiceImpl;
 
     @RequestMapping("/teacherHome")
-    public String teacherHome(){
+    public String teacherHome(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+        HttpSession session = request.getSession(false);
+        if(session == null) {
+            response.sendRedirect("/teacherLogin");
+            return null;
+        }
         return "teacher/teacher-home";
     }
 
     @RequestMapping("/teacherInfo")
-    public String teacherInfo(){
+    public String teacherInfo(HttpServletRequest request, Model model){
+        String email=(String)request.getSession(true).getAttribute("email");
+        Teacher t=teacherInfoServiceImpl.findTeacherInfoByMail(email);
+        model.addAttribute("teacher",t);
+        model.addAttribute("percent",t.getInfoCompleteDegree());
+        System.out.println(t.getTeacherPassword());
         return "teacher/teacher-info";
     }
 
@@ -75,5 +61,4 @@ public class IndexController {
     public String teacherScoreNotice(){
         return "teacher/teacher-scoreNotice";
     }
-
 }

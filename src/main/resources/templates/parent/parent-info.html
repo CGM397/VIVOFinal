@@ -35,7 +35,7 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        会员信息
+                        个人信息
                     </h1>
                 </div>
                 <div class="row">
@@ -104,7 +104,7 @@
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${parent.parentName}" class="col-xs-12 col-sm-8" type="text" name="parentName" id="parentName"/>
+                                                                    <input th:value="${parent.parentName}" class="col-xs-12 col-sm-8" type="text" name="parentName" id="parentName" placeholder="请填写您的姓名"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -116,7 +116,7 @@
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${parent.studentId}" class="col-xs-12 col-sm-8" type="text" name="studentId" id="studentId"/>
+                                                                    <input th:value="${parent.studentId}" class="col-xs-12 col-sm-8" type="text" name="studentId" id="studentId" placeholder="请填写学生学号"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -128,7 +128,7 @@
 
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${parent.studentName}" class="col-xs-12 col-sm-8" type="text" name="studentName" id="studentName"/>
+                                                                    <input th:value="${parent.studentName}" class="col-xs-12 col-sm-8" type="text" name="studentName" id="studentName" placeholder="请填写学生姓名"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -148,7 +148,7 @@
                                                             <label class="col-sm-4 control-label no-padding-right" for="parentPhone">电话</label>
                                                             <div class="col-sm-8">
                                                                 <div class="clearfix">
-                                                                    <input th:value="${parent.parentPhone}" class="col-xs-12 col-sm-8" type="text" name="parentPhone" id="parentPhone" />
+                                                                    <input th:value="${parent.parentPhoneNumber}" class="col-xs-12 col-sm-8" type="text" name="parentPhone" id="parentPhone"  placeholder="请填写您的电话"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,11 +174,11 @@
             </div><!--页面具体内容-->
         </div>
     </div>
-
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="icon-double-angle-up icon-only bigger-110"></i>
     </a>
 </div>
+<input th:value="${parent.parentId}" id="parentId" type="text" style="display:none;"/>
 <!-- 模态框（Modal
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -209,10 +209,10 @@
 <script th:inline="javascript">
     function Parent(id,email,password,name,phone,studentId,studentName){
         this.parentId=id;
-        this.parentEmail=email;
+        this.parentMail=email;
         this.parentPassword=password;
         this.parentName=name;
-        this.parentPhone=phone;
+        this.parentPhoneNumber=phone;
         this.studentId=studentId;
         this.studentName=studentName;
     }
@@ -247,20 +247,19 @@
             },
             parentPhone: {
                 required: true,
-                digits:true,
+                minlength:5
+            },
+            studentId:{
+                required: true,
                 minlength:5
             },
             studentName: {
                 required: true,
                 minlength:2
             },
-            studentId:{
-                student: true,
-                minlength:5
-            }
         },
         messages: {
-            parentMail: {
+            parentMail:{
                 required: "Please provide a valid email.",
                 email: "Please provide a valid email."
             },
@@ -270,8 +269,7 @@
             },
             parentPhone:{
                 required: "Please provide a phone.",
-                minlength: "Please provide a valid phone.",
-                digits: "Please provide a valid phone."
+                minlength: "Please provide a valid phone."
             },
             studentId:{
                 required: "Please provide an ID",
@@ -319,10 +317,10 @@
             return;
         }
         var id=document.getElementById("parentId").value;
-        var email=document.getElementById("parentId").value;
-        var password=document.getElementById("parentId").value;
-        var name=document.getElementById("parentId").value;
-        var phone=document.getElementById("parentId").value;
+        var email=document.getElementById("parentMail").value;
+        var password=document.getElementById("parentPassword").value;
+        var name=document.getElementById("parentName").value;
+        var phone=document.getElementById("parentPhone").value;
         var studentId=document.getElementById("studentId").value;
         var studentName=document.getElementById("studentName").value;
 
@@ -333,12 +331,16 @@
             contentType: "application/json",
             data: JSON.stringify(parent),
             success:function(result) {
-                window.location.reload();
+                if(result=true) {
+                    window.location.reload();
+                }else{
+                    bootbox.alert("该学号已注册！");
+                }
             },
             error: function (result) {
                 bootbox.alert("error!");
             }
-        });
+        });I
     };
 </script>
 </html>
