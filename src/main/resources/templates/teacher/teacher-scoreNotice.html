@@ -108,18 +108,17 @@
             }
             //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
             //wb.Sheets[Sheet名]获取第一个Sheet的数据
-            document.getElementById("demo").innerHTML= JSON.stringify( XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]) );
             score=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
             scoreFinal=[];
             for(var i=0;i<score.length;i++){
                 if('学生ID' in score[i]) {
-                    scoreFinal[i] = {'studentId':score[i]['学生ID']};
+                    scoreFinal[i] = {'studentId':score[i]['学生ID']+""};
                 }
                 else if('ID' in score[i]) {
-                    scoreFinal[i] = {'studentId':score[i]['ID']};
+                    scoreFinal[i] = {'studentId':score[i]['ID']+""};
                 }
                 else if('id' in score[i]) {
-                    scoreFinal[i] = {'studentId':score[i]['id']};
+                    scoreFinal[i] = {'studentId':score[i]['id']+""};
                 }
                 scoreFinal[i]['examScore'] = score[i]['成绩'];
             }
@@ -128,7 +127,6 @@
             result['examName']=document.getElementById('lesson').value;
             result['examTime']=document.getElementById('time').value;
             result['items'] =scoreFinal;
-            alert(JSON.stringify(result));
 
             //调用ajax传给后端
             upLoadScoreAjax(result);
@@ -143,7 +141,8 @@
 
 
     function upLoadScoreAjax(score) {
-        $.ajax({ url: "/Restaurant/Inform", dataType:"text" ,data:score,type:"POST",timeout:3000, success: function(data){
+        $.ajax({ url: "/teacher/sendExamScore", dataType:"json", data:JSON.stringify(score),type:"POST",timeout:3000,
+            contentType:"application/json;charset=utf-8",success: function(data){
             alert("发布成功");
             }
             ,error:function (XMLHttpRequest, textStatus, errorThrown) {
