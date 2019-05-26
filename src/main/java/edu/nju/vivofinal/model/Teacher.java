@@ -97,4 +97,17 @@ public class Teacher implements Serializable {
     public void setExamScores(Set<ExamScore> examScores) {
         this.examScores = examScores;
     }
+
+    public double getInfoCompleteDegree(){
+        int flag = 0;
+        if(this.getTeacherName() == null)
+            flag++;
+        if(this.getTeacherMail() == null)
+            flag++;
+        if(this.getTeacherPassword() == null)
+            flag++;
+        if(this.getTeacherPhoneNumber() == null)
+            flag++;
+        return (((4 - flag) * 25) * 100) / 100.0;
+    }
 }

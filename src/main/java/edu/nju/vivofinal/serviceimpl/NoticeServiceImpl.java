@@ -93,4 +93,9 @@ public class NoticeServiceImpl implements NoticeService {
         }
         return res;
     }
+
+    @Override
+    public boolean sendExamScore() {
+        return false;
+    }
 }

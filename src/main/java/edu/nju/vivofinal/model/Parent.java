@@ -94,4 +94,21 @@ public class Parent implements Serializable {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+    public double getInfoCompleteDegree(){
+        int flag = 0;
+        if(this.getParentMail() == null)
+            flag++;
+        if(this.getParentPassword() == null)
+            flag++;
+        if(this.getParentName() == null)
+            flag++;
+        if(this.getParentPhoneNumber() == null)
+            flag++;
+        if(this.getStudentId() == null)
+            flag++;
+        if(this.getStudentName() == null)
+            flag++;
+        return Math.round(((6 - flag) * (100 / 6.0)) * 100) / 100.0;
+    }
 }

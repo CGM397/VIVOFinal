@@ -10,4 +10,5 @@ public interface NoticeService {
 
     boolean sendSomeSpecificNotices(long teacherId, List<Long> parentIds, String title, String context);
 
+    boolean sendExamScore();
 }
