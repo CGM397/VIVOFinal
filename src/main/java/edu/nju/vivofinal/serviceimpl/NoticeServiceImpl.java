@@ -38,12 +38,14 @@ public class NoticeServiceImpl implements NoticeService {
         for(int i = 0; i < parents.size(); i++){
             storeMails[i] = parents.get(i).getParentMail();
         }
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(FROM_MAIL);
-        message.setTo(storeMails);
-        message.setSubject(title);
-        message.setText(context);
-        mailSender.send(message);
+        if(storeMails.length > 0) {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom(FROM_MAIL);
+            message.setTo(storeMails);
+            message.setSubject(title);
+            message.setText(context);
+            mailSender.send(message);
+        }
 
         CommonNotice commonNotice = new CommonNotice(new Date(), teacherId, title, context);
         return commonNoticeDao.saveCommonNotice(commonNotice);

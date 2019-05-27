@@ -57,7 +57,7 @@ public class ParentIndexController {
     }
 
     @RequestMapping("/parentNotice")
-    public String parentNotice(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+    public String parentNotice(HttpServletRequest request, Model model) {
         String email = (String)request.getSession(true).getAttribute(EMAIL);
         List<CommonNotice> notices=parentInfoServiceImpl.showCommonNotices(email);
         List<SpecificNotice> sNotices=parentInfoServiceImpl.showSpecificNotices(email);

@@ -14,7 +14,7 @@
             <span class="menu-text"></span>
         </a>
 
-        <div th:include="teacher/teacher-common::commonNav('teacher-commonNotice')" class="sidebar" id="sidebar"></div>
+        <div th:include="teacher/teacher-common::commonNav('teacher-notice')" class="sidebar" id="sidebar"></div>
 
         <div class="main-content">
             <div class="breadcrumbs" id="breadcrumbs">
@@ -67,8 +67,8 @@
 </body>
 <script type="text/javascript">
     function submit(){
-        var title=document.getElementById("title").innerText;
-        var content=document.getElementById("content").innerText;
+        var title=document.getElementById("title").value;
+        var content=document.getElementById("content").value;
         $.ajax({
             type: 'POST',
             url: "/teacher/sendCommonNotice",

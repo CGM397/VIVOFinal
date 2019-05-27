@@ -4,6 +4,7 @@ import edu.nju.vivofinal.dao.BaseDao;
 import edu.nju.vivofinal.dao.CommonNoticeDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
 import edu.nju.vivofinal.model.CommonNotice;
+import edu.nju.vivofinal.model.Teacher;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -60,7 +61,10 @@ public class CommonNoticeDaoImpl implements CommonNoticeDao {
 
     @Override
     public List<CommonNotice> findCommonNoticesByParentMail(String parentMail) {
-        long teacherId = teacherInfoDao.findTeacherByParentMail(parentMail).getTeacherId();
+        Teacher teacher = teacherInfoDao.findTeacherByParentMail(parentMail);
+        if(teacher == null || teacher.getTeacherPassword() == null)
+            return new ArrayList<>();
+        long teacherId = teacher.getTeacherId();
         return findAllCommonNotices(teacherId);
     }
 }

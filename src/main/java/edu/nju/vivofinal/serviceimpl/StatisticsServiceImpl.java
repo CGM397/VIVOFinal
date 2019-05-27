@@ -37,6 +37,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         Teacher teacher = teacherInfoService.findTeacherByParentMail(parentMail);
         if(teacher != null) {
             List<ExamScore> examScores = new ArrayList<>(teacher.getExamScores());
+            examScores = sort(examScores);
             for(ExamScore oneExamScore : examScores) {
                 Date oneDate = oneExamScore.getExamTime();
                 List<ScoreItem> items = oneExamScore.getItems();
@@ -54,6 +55,24 @@ public class StatisticsServiceImpl implements StatisticsService {
         return res;
     }
 
+    private List<ExamScore> sort(List<ExamScore> store){
+        for(int i = 0; i < store.size() - 1; i++) {
+            for(int j = 0; j < store.size() - i - 1; j++) {
+                ExamScore one = store.get(j);
+                ExamScore two = store.get(j + 1);
+                Date oneDate = one.getExamTime();
+                Date twoDate = two.getExamTime();
+                if(oneDate.after(twoDate)) {
+                    two.setExamTime(oneDate);
+                    one.setExamTime(twoDate);
+                    store.set(j, one);
+                    store.set(j + 1, two);
+                }
+            }
+        }
+        return store;
+    }
+
     @Override
     public AverageScore showAverageScores(String teacherMail) {
         AverageScore res = new AverageScore();
@@ -61,6 +80,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         List<Double> averageScores = new ArrayList<>();
         Teacher teacher = teacherInfoDao.findTeacherByMail(teacherMail);
         List<ExamScore> examScoreList = new ArrayList<>(teacher.getExamScores());
+        examScoreList = sort(examScoreList);
         for(ExamScore one : examScoreList) {
             Date oneDate = one.getExamTime();
             double totalScore = 0.0;
