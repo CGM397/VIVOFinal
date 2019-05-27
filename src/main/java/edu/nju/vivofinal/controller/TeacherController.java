@@ -5,7 +5,9 @@ import edu.nju.vivofinal.model.ExamScore;
 import edu.nju.vivofinal.model.SpecificNotice;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.NoticeService;
+import edu.nju.vivofinal.service.StatisticsService;
 import edu.nju.vivofinal.service.TeacherInfoService;
+import edu.nju.vivofinal.statistics.AverageScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +23,10 @@ public class TeacherController {
     private TeacherInfoService teacherInfoService;
     @Autowired
     private NoticeService noticeService;
+    @Autowired
+    private StatisticsService statisticsService;
+
+    private static final String EMAIL = "email";
 
     @PostMapping(value = "/update")
     @ResponseBody
@@ -56,7 +62,7 @@ public class TeacherController {
                                     HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         long teacherId =
-                teacherInfoService.findTeacherInfoByMail((String)session.getAttribute("email")).getTeacherId();
+                teacherInfoService.findTeacherInfoByMail((String)session.getAttribute(EMAIL)).getTeacherId();
         return noticeService.sendCommonNotice(teacherId, title, context);
     }
 
@@ -80,7 +86,7 @@ public class TeacherController {
     public boolean sendExamScore(@RequestBody ExamScore examScore, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         long teacherId =
-                teacherInfoService.findTeacherInfoByMail((String)session.getAttribute("email")).getTeacherId();
+                teacherInfoService.findTeacherInfoByMail((String)session.getAttribute(EMAIL)).getTeacherId();
         return noticeService.sendExamScore(teacherId, examScore);
     }
 
@@ -106,5 +112,11 @@ public class TeacherController {
     @ResponseBody
     public SpecificNotice showOneSpecificNotice(@RequestParam long specificNoticeId) {
         return teacherInfoService.showOneSpecificNotice(specificNoticeId);
+    }
+
+    @PostMapping(value = "/showAverageScores")
+    @ResponseBody
+    public AverageScore showAverageScores(HttpServletRequest request) {
+        return statisticsService.showAverageScores((String)request.getSession(true).getAttribute(EMAIL));
     }
 }

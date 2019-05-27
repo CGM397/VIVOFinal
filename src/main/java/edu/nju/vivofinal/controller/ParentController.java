@@ -21,6 +21,8 @@ public class ParentController {
     @Autowired
     private StatisticsService statisticsService;
 
+    private static final String EMAIL = "email";
+
     @PostMapping(value = "/update")
     @ResponseBody
     public boolean update(@RequestBody Parent parent) {
@@ -36,7 +38,7 @@ public class ParentController {
     @PostMapping(value = "/applyToJoinClass")
     @ResponseBody
     public boolean applyToJoinClass(@RequestParam String teacherMail, HttpServletRequest request) {
-        String email = (String)request.getSession(true).getAttribute("email");
+        String email = (String)request.getSession(true).getAttribute(EMAIL);
         return parentInfoService.applyToJoinClass(email, teacherMail);
     }
 
@@ -54,8 +56,8 @@ public class ParentController {
 
     @PostMapping(value = "/showStudentScores")
     @ResponseBody
-    public StudentScore showStudentScores(@RequestParam String parentMail) {
-        return statisticsService.showStudentScores(parentMail);
+    public StudentScore showStudentScores(HttpServletRequest request) {
+        return statisticsService.showStudentScores((String)request.getSession(true).getAttribute(EMAIL));
     }
 
     @PostMapping(value = "/showCommonNotices")

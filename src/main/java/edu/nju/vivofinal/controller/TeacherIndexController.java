@@ -3,7 +3,6 @@ package edu.nju.vivofinal.controller;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.StatisticsService;
 import edu.nju.vivofinal.service.TeacherInfoService;
-import edu.nju.vivofinal.statistics.AverageScore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,11 +48,7 @@ public class TeacherIndexController {
     }
 
     @RequestMapping("/teacherStatistics")
-    public String teacherStatistics(HttpServletRequest request, Model model){
-        String email = (String)request.getSession(true).getAttribute("email");
-        AverageScore averageScore = statisticsService.showAverageScores(email);
-        model.addAttribute("examDate", averageScore.getExamDate());
-        model.addAttribute("averageScores", averageScore.getAverageScores());
+    public String teacherStatistics(){
         return "teacher/teacher-statistics";
     }
 

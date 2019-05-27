@@ -57,8 +57,32 @@
 <div th:include="teacher/teacher-common::commonFooter"></div>
 <script th:src="@{static/js/echarts.js}"></script>
 <script>
-    var examDate = [[${examDate}]];
-    var averageScores = [[${averageScores}]];
+    var examDateRes = [];
+    var averageScoresRes = [];
+    function AverageScore(examDate, averageScores){
+        this.examDate = examDate;
+        this.averageScores = averageScores;
+    }
+    $.ajax({
+        type: 'POST',
+        url: "teacher/showAverageScores",
+        async : false,
+        data: {},
+        success:function(result) {
+            var tmpStore = result.examDate;
+            for(var i = 0; i < tmpStore.length; i++){
+                var oneTmp = String(tmpStore[i]);
+                if(tmpStore[i] != null)
+                    examDateRes.push(oneTmp.substr(0, 10));
+                else
+                    examDateRes.push("无日期");
+            }
+            averageScoresRes = result.averageScores;
+        },
+        error: function (result) {
+            bootbox.alert("error!");
+        }
+    });
     var myChart = echarts.init(document.getElementById("averageScore"));
     var option = {
         title:{
@@ -68,18 +92,50 @@
             trigger: 'axis'
         },
         legend: {
-            data:['考试时间']
+            type:'scroll',
+            orient: 'horizontal',
+            data:['考试时间'],
+            icon:'circle'
+        },
+
+        toolbox: { //可视化的工具箱
+            show: true,
+            feature: {
+                dataView: { //数据视图
+                    show: true
+                },
+                restore: { //重置
+                    show: true
+                },
+                dataZoom: { //数据缩放视图
+                    show: true
+                },
+                saveAsImage: {//保存图片
+                    show: true
+                },
+                magicType: {//动态类型切换
+                    type: ['bar', 'line']
+                }
+            }
+        },
+
+        dataZoom: {
+            orient: 'horizontal',
+            backgroundColor: 'rgba(0,0,0,0)',
+            dataBackgroundColor: '#eee',
+            fillerColor: 'rgba(144,197,237,0.2)',
+            handleColor: 'rgba(70,130,180,0.8)'
         },
 
         xAxis : {
-            data : examDate
+            data : examDateRes
         },
         yAxis :{},
         series : [
             {
-                name: '成绩',
+                name: '考试时间',
                 type: 'line',
-                data: averageScores
+                data: averageScoresRes
             }
         ]
     };
