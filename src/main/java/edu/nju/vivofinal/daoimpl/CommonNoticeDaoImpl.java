@@ -2,6 +2,7 @@ package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.BaseDao;
 import edu.nju.vivofinal.dao.CommonNoticeDao;
+import edu.nju.vivofinal.dao.TeacherInfoDao;
 import edu.nju.vivofinal.model.CommonNotice;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,12 +21,19 @@ public class CommonNoticeDaoImpl implements CommonNoticeDao {
 
     @Autowired
     private BaseDao baseDao;
+    @Autowired
+    private TeacherInfoDao teacherInfoDao;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @Override
     public boolean saveCommonNotice(CommonNotice commonNotice) {
         return baseDao.save(commonNotice);
+    }
+
+    @Override
+    public boolean deleteCommonNotice(long commonNoticeId) {
+        return baseDao.delete(CommonNotice.class, commonNoticeId);
     }
 
     @Override
@@ -48,5 +56,11 @@ public class CommonNoticeDaoImpl implements CommonNoticeDao {
             logger.error(new Date().toString() + ": ", e);
         }
         return res;
+    }
+
+    @Override
+    public List<CommonNotice> findCommonNoticesByParentMail(String parentMail) {
+        long teacherId = teacherInfoDao.findTeacherByParentMail(parentMail).getTeacherId();
+        return findAllCommonNotices(teacherId);
     }
 }

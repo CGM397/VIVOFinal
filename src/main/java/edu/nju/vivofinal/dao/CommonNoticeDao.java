@@ -8,8 +8,11 @@ public interface CommonNoticeDao {
 
     boolean saveCommonNotice(CommonNotice commonNotice);
 
+    boolean deleteCommonNotice(long commonNoticeId);
+
     CommonNotice findCommonNoticeById(long commonNoticeId);
 
     List<CommonNotice> findAllCommonNotices(long teacherId);
 
+    List<CommonNotice> findCommonNoticesByParentMail(String parentMail);
 }

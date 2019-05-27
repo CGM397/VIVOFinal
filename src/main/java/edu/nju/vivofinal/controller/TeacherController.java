@@ -1,6 +1,8 @@
 package edu.nju.vivofinal.controller;
 
+import edu.nju.vivofinal.model.CommonNotice;
 import edu.nju.vivofinal.model.ExamScore;
+import edu.nju.vivofinal.model.SpecificNotice;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.NoticeService;
 import edu.nju.vivofinal.service.TeacherInfoService;
@@ -76,5 +78,29 @@ public class TeacherController {
         long teacherId =
                 teacherInfoService.findTeacherInfoByMail((String)session.getAttribute("email")).getTeacherId();
         return noticeService.sendExamScore(teacherId, examScore);
+    }
+
+    @PostMapping(value = "/showAllCommonNotices")
+    @ResponseBody
+    public List<CommonNotice> showAllCommonNotices(@RequestParam long teacherId) {
+        return teacherInfoService.showAllCommonNotices(teacherId);
+    }
+
+    @PostMapping(value = "/showOneCommonNotice")
+    @ResponseBody
+    public CommonNotice showOneCommonNotice(@RequestParam long commonNoticeId) {
+        return teacherInfoService.showOneCommonNotice(commonNoticeId);
+    }
+
+    @PostMapping(value = "/showAllSpecificNotices")
+    @ResponseBody
+    public List<SpecificNotice> showAllSpecificNotices(@RequestParam long teacherId) {
+        return teacherInfoService.showAllSpecificNotices(teacherId);
+    }
+
+    @PostMapping(value = "/showOneSpecificNotice")
+    @ResponseBody
+    public SpecificNotice showOneSpecificNotice(@RequestParam long specificNoticeId) {
+        return teacherInfoService.showOneSpecificNotice(specificNoticeId);
     }
 }

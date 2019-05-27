@@ -2,6 +2,7 @@ package edu.nju.vivofinal.daoimpl;
 
 import edu.nju.vivofinal.dao.BaseDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
+import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.model.Teacher;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -62,5 +64,27 @@ public class TeacherInfoDaoImpl implements TeacherInfoDao {
     @Override
     public List<Teacher> findAllTeachers() {
         return (List<Teacher>) baseDao.getAllList(Teacher.class);
+    }
+
+    @Override
+    public Teacher findTeacherByParentMail(String parentMail) {
+        Teacher res = null;
+        boolean flag = false;
+        List<Teacher> teacherList = findAllTeachers();
+        for(Teacher one : teacherList){
+            if(one.getParents() != null && !one.getParents().isEmpty()){
+                List<Parent> parentList = new ArrayList<>(one.getParents());
+                for(Parent oneParent : parentList){
+                    if(oneParent.getParentMail().equals(parentMail)){
+                        res = one;
+                        flag = true;
+                        break;
+                    }
+                }
+                if(flag)
+                    break;
+            }
+        }
+        return res;
     }
 }

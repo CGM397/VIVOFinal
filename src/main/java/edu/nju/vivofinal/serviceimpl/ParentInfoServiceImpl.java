@@ -1,11 +1,7 @@
 package edu.nju.vivofinal.serviceimpl;
 
-import edu.nju.vivofinal.dao.ApplicationDao;
-import edu.nju.vivofinal.dao.ParentInfoDao;
-import edu.nju.vivofinal.dao.TeacherInfoDao;
-import edu.nju.vivofinal.model.ParentApplication;
-import edu.nju.vivofinal.model.Parent;
-import edu.nju.vivofinal.model.Teacher;
+import edu.nju.vivofinal.dao.*;
+import edu.nju.vivofinal.model.*;
 import edu.nju.vivofinal.service.NoticeService;
 import edu.nju.vivofinal.service.ParentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +23,10 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     private ApplicationDao applicationDao;
     @Autowired
     private NoticeService noticeService;
+    @Autowired
+    private CommonNoticeDao commonNoticeDao;
+    @Autowired
+    private SpecificNoticeDao specificNoticeDao;
 
     @Override
     public boolean updateParentInfo(Parent parent) {
@@ -117,5 +117,25 @@ public class ParentInfoServiceImpl implements ParentInfoService {
         res = applicationDao.updateApplication(parentApplication) &&
                 noticeService.sendOneSpecificNotice(teacherId, parentApplication.getParentId(), title, context);
         return res;
+    }
+
+    @Override
+    public List<CommonNotice> showCommonNotices(String parentMail) {
+        return commonNoticeDao.findCommonNoticesByParentMail(parentMail);
+    }
+
+    @Override
+    public CommonNotice showOneCommonNotice(long commonNoticeId) {
+        return commonNoticeDao.findCommonNoticeById(commonNoticeId);
+    }
+
+    @Override
+    public List<SpecificNotice> showSpecificNotices(String parentMail) {
+        return specificNoticeDao.findSpecificNoticesByParentMail(parentMail);
+    }
+
+    @Override
+    public SpecificNotice showOneSpecificNotice(long specificNoticeId) {
+        return specificNoticeDao.findSpecificNoticeById(specificNoticeId);
     }
 }

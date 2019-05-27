@@ -1,15 +1,17 @@
 package edu.nju.vivofinal.serviceimpl;
 
 import edu.nju.vivofinal.dao.ApplicationDao;
+import edu.nju.vivofinal.dao.CommonNoticeDao;
+import edu.nju.vivofinal.dao.SpecificNoticeDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
+import edu.nju.vivofinal.model.CommonNotice;
 import edu.nju.vivofinal.model.ParentApplication;
-import edu.nju.vivofinal.model.Parent;
+import edu.nju.vivofinal.model.SpecificNotice;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.TeacherInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,6 +21,10 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
     private TeacherInfoDao teacherInfoDao;
     @Autowired
     private ApplicationDao applicationDao;
+    @Autowired
+    private CommonNoticeDao commonNoticeDao;
+    @Autowired
+    private SpecificNoticeDao specificNoticeDao;
 
     @Override
     public void updateTeacherInfo(Teacher teacher) {
@@ -32,28 +38,31 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     @Override
     public Teacher findTeacherByParentMail(String parentMail) {
-        Teacher res = null;
-        boolean flag = false;
-        List<Teacher> teacherList = teacherInfoDao.findAllTeachers();
-        for(Teacher one : teacherList){
-            if(one.getParents() != null && !one.getParents().isEmpty()){
-                List<Parent> parentList = new ArrayList<>(one.getParents());
-                for(Parent oneParent : parentList){
-                    if(oneParent.getParentMail().equals(parentMail)){
-                        res = one;
-                        flag = true;
-                        break;
-                    }
-                }
-                if(flag)
-                    break;
-            }
-        }
-        return res;
+        return teacherInfoDao.findTeacherByParentMail(parentMail);
     }
 
     @Override
     public List<ParentApplication> showAllApplications(String teacherMail) {
         return applicationDao.findApplicationsByTeacherMail(teacherMail);
+    }
+
+    @Override
+    public List<CommonNotice> showAllCommonNotices(long teacherId) {
+        return commonNoticeDao.findAllCommonNotices(teacherId);
+    }
+
+    @Override
+    public CommonNotice showOneCommonNotice(long commonNoticeId) {
+        return commonNoticeDao.findCommonNoticeById(commonNoticeId);
+    }
+
+    @Override
+    public List<SpecificNotice> showAllSpecificNotices(long teacherId) {
+        return specificNoticeDao.findAllSpecificNotices(teacherId);
+    }
+
+    @Override
+    public SpecificNotice showOneSpecificNotice(long specificNoticeId) {
+        return specificNoticeDao.findSpecificNoticeById(specificNoticeId);
     }
 }

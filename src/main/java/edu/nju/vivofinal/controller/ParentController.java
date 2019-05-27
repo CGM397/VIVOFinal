@@ -1,6 +1,8 @@
 package edu.nju.vivofinal.controller;
 
+import edu.nju.vivofinal.model.CommonNotice;
 import edu.nju.vivofinal.model.Parent;
+import edu.nju.vivofinal.model.SpecificNotice;
 import edu.nju.vivofinal.service.ParentInfoService;
 import edu.nju.vivofinal.service.StatisticsService;
 import edu.nju.vivofinal.statistics.StudentScore;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/parent")
@@ -53,6 +56,30 @@ public class ParentController {
     @ResponseBody
     public StudentScore showStudentScores(@RequestParam String parentMail) {
         return statisticsService.showStudentScores(parentMail);
+    }
+
+    @PostMapping(value = "/showCommonNotices")
+    @ResponseBody
+    public List<CommonNotice> showCommonNotices(@RequestParam String parentMail) {
+        return parentInfoService.showCommonNotices(parentMail);
+    }
+
+    @PostMapping(value = "/showOneCommonNotice")
+    @ResponseBody
+    public CommonNotice showOneCommonNotice(@RequestParam long commonNoticeId) {
+        return parentInfoService.showOneCommonNotice(commonNoticeId);
+    }
+
+    @PostMapping(value = "/showSpecificNotices")
+    @ResponseBody
+    public List<SpecificNotice> showSpecificNotices(@RequestParam String parentMail) {
+        return parentInfoService.showSpecificNotices(parentMail);
+    }
+
+    @PostMapping(value = "/showOneSpecificNotice")
+    @ResponseBody
+    public SpecificNotice showOneSpecificNotice(@RequestParam long specificNoticeId) {
+        return parentInfoService.showOneSpecificNotice(specificNoticeId);
     }
 
 }

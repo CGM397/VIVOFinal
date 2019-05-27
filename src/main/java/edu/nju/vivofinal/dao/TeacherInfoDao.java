@@ -18,4 +18,5 @@ public interface TeacherInfoDao {
 
     List<Teacher> findAllTeachers();
 
+    Teacher findTeacherByParentMail(String parentMail);
 }
