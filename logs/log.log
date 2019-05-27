@@ -1,0 +1,213 @@
+[framework][13:04:44,227-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:04:45,007-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 10584 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:04:45,007-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:04:48,168-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:04:48,248-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 60ms. Found 0 repository interfaces. 
+[framework][13:04:49,078-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2fa570f5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:04:49,678-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:04:51,068-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 5921 ms 
+[framework][13:04:51,398-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:04:51,908-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:04:51,998-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:04:52,218-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:04:52,218-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:04:52,308-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:04:52,768-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:04:54,808-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:04:55,518-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:04:56,028-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:04:56,038-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 12.271 seconds (JVM running for 15.238) 
+[framework][13:05:12,875-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:05:12,895-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 19 ms 
+[framework][13:06:35,002-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:06:35,722-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 368 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:06:35,732-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:06:39,128-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:06:39,208-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 50ms. Found 0 repository interfaces. 
+[framework][13:06:40,068-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6b3dc14f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:06:40,658-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:06:42,058-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 6126 ms 
+[framework][13:06:42,388-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:06:42,698-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:06:42,828-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:06:43,068-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:06:43,068-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:06:43,168-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:06:43,698-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:06:45,568-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:06:46,228-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:06:46,708-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:06:46,708-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 12.116 seconds (JVM running for 15.758) 
+[framework][13:06:56,491-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:06:56,518-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 26 ms 
+[framework][13:07:27,184-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:09:51,707-org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1249)][WARN]:No mapping for GET /teacherStudentDetail/161250008 
+[framework][13:21:22,824-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:21:23,584-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 11740 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:21:23,584-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:21:26,617-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:21:26,687-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 50ms. Found 0 repository interfaces. 
+[framework][13:21:27,527-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$656af991] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:21:28,117-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:21:29,467-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 5683 ms 
+[framework][13:21:29,817-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:21:30,147-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:21:30,247-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:21:30,467-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:21:30,467-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:21:30,567-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:21:31,057-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:21:33,023-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:21:33,923-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:21:34,679-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:21:34,689-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 12.245 seconds (JVM running for 15.108) 
+[framework][13:21:45,400-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:21:45,410-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 10 ms 
+[framework][13:22:08,579-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:32:12,485-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:32:13,405-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 10112 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:32:13,405-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:32:17,735-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:32:18,182-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 365ms. Found 0 repository interfaces. 
+[framework][13:32:19,023-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4d52c0c8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:32:19,680-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:32:21,190-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 7587 ms 
+[framework][13:32:21,620-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:32:22,070-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:32:22,191-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:32:22,457-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:32:22,461-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:32:22,595-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:32:23,101-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:32:25,471-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:32:26,501-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:32:27,061-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:32:27,071-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 15.246 seconds (JVM running for 18.256) 
+[framework][13:32:58,406-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:32:58,430-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 23 ms 
+[framework][13:33:09,855-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:37:13,137-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:37:13,963-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 10256 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:37:13,967-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:37:17,431-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:37:17,499-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 51ms. Found 0 repository interfaces. 
+[framework][13:37:18,473-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de1588d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:37:19,103-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:37:20,554-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 6399 ms 
+[framework][13:37:21,035-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:37:21,392-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:37:21,512-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:37:21,757-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:37:21,761-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:37:21,878-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:37:22,428-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:37:24,528-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:37:25,275-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:37:25,981-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:37:25,987-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 13.307 seconds (JVM running for 15.958) 
+[framework][13:37:33,024-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:37:33,045-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 20 ms 
+[framework][13:37:45,547-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:46:07,047-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:46:07,768-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 6520 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:46:07,772-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:46:11,082-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:46:11,163-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 62ms. Found 0 repository interfaces. 
+[framework][13:46:12,212-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bf49c26e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:46:12,894-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:46:14,361-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 6325 ms 
+[framework][13:46:14,737-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:46:15,086-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:46:15,197-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:46:15,426-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:46:15,430-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:46:15,540-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:46:16,062-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:46:18,106-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:46:18,869-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:46:19,452-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:46:19,459-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 12.959 seconds (JVM running for 15.709) 
+[framework][13:46:33,817-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:46:33,848-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 30 ms 
+[framework][13:47:10,430-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:55:06,204-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:55:07,322-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 7780 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:55:07,326-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:55:11,511-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:55:11,706-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 147ms. Found 0 repository interfaces. 
+[framework][13:55:12,986-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$23de86cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:55:14,175-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:55:15,615-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 8125 ms 
+[framework][13:55:16,014-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:55:16,404-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:55:16,512-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:55:16,736-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:55:16,739-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:55:16,831-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:55:17,324-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:55:19,208-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:55:20,126-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:55:20,710-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:55:20,719-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 15.003 seconds (JVM running for 19.35) 
+[framework][13:56:09,782-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:56:10,289-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 7724 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:56:10,296-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:56:13,121-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:56:13,195-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 54ms. Found 0 repository interfaces. 
+[framework][13:56:14,133-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c2d5aae8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:56:14,731-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:56:16,131-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 5681 ms 
+[framework][13:56:16,497-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:56:16,855-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:56:16,948-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:56:17,153-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:56:17,155-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:56:17,244-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:56:17,710-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:56:19,561-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:56:20,389-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:56:20,966-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:56:20,973-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 11.533 seconds (JVM running for 14.009) 
+[framework][13:56:31,892-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:56:31,920-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 27 ms 
+[framework][13:56:49,420-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
+[framework][13:59:16,129-org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21)][INFO]:HV000001: Hibernate Validator 6.0.16.Final 
+[framework][13:59:16,732-org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50)][INFO]:Starting VIVOFinalApplication on DESKTOP-0DQ68FR with PID 10664 (D:\MyProject\VIVOFinal\target\classes started by Lenovo in D:\MyProject\VIVOFinal) 
+[framework][13:59:16,735-org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:675)][INFO]:No active profile set, falling back to default profiles: default 
+[framework][13:59:20,474-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126)][INFO]:Bootstrapping Spring Data repositories in DEFAULT mode. 
+[framework][13:59:20,554-org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182)][INFO]:Finished Spring Data repository scanning in 54ms. Found 0 repository interfaces. 
+[framework][13:59:21,536-org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330)][INFO]:Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$911acc3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+[framework][13:59:22,208-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90)][INFO]:Tomcat initialized with port(s): 8080 (http) 
+[framework][13:59:23,663-org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296)][INFO]:Root WebApplicationContext: initialization completed in 6791 ms 
+[framework][13:59:24,008-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)][INFO]:HikariPool-1 - Starting... 
+[framework][13:59:24,389-com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)][INFO]:HikariPool-1 - Start completed. 
+[framework][13:59:24,507-org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31)][INFO]:HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+[framework][13:59:24,811-org.hibernate.Version.logVersion(Version.java:45)][INFO]:HHH000412: Hibernate Core {5.2.10.Final} 
+[framework][13:59:24,814-org.hibernate.cfg.Environment.<clinit>(Environment.java:213)][INFO]:HHH000206: hibernate.properties not found 
+[framework][13:59:24,914-org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit>(JavaReflectionManager.java:66)][INFO]:HCANN000001: Hibernate Commons Annotations {5.0.1.Final} 
+[framework][13:59:25,427-org.hibernate.dialect.Dialect.<init>(Dialect.java:157)][INFO]:HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+[framework][13:59:27,487-org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415)][INFO]:Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[framework][13:59:28,280-org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:171)][INFO]:Initializing ExecutorService 'applicationTaskExecutor' 
+[framework][13:59:28,943-org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)][INFO]:Tomcat started on port(s): 8080 (http) with context path '' 
+[framework][13:59:28,950-org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59)][INFO]:Started VIVOFinalApplication in 13.193 seconds (JVM running for 15.795) 
+[framework][13:59:37,241-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:524)][INFO]:Initializing Servlet 'dispatcherServlet' 
+[framework][13:59:37,263-org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:546)][INFO]:Completed initialization in 21 ms 
+[framework][13:59:48,598-org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService(QueryTranslatorFactoryInitiator.java:47)][INFO]:HHH000397: Using ASTQueryTranslatorFactory 
