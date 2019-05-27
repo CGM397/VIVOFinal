@@ -28,18 +28,25 @@
                         <a href="/parentHome">主页</a>
                     </li>
 
-                    <li class="active">个人信息</li>
+                    <li class="active">成绩统计</li>
                 </ul>
             </div>
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        成绩查看
+                        成绩统计
                     </h1>
                 </div>
                 <div class="row">
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="personalScore" style="width: 1000px; height:400px">
+                                个人成绩统计
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div><!--页面具体内容-->
+            </div>
         </div>
     </div>
 
@@ -48,6 +55,39 @@
     </a>
 </div>
 <div th:include="parent/parent-common::commonFooter"></div>
+<script th:src="@{static/js/echarts.js}"></script>
+<script>
+    var examDate = [[${examDate}]];
+    var scores = [[${scores}]];
+
+    var myChart = echarts.init(document.getElementById("personalScore"));
+    var option = {
+        title:{
+            text:"个人成绩折线图"
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['考试时间']
+        },
+
+        xAxis : {
+                data : examDate
+            },
+        yAxis :{},
+        series : [
+            {
+                name: '成绩',
+                type: 'line',
+                data: scores
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+</script>
 </body>
 <!--script-->
 </html>

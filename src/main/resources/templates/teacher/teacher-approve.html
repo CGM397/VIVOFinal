@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="teacher/teacher-common::commonHeader">
+</head>
+<body>
+<div th:include="teacher/teacher-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div th:include="teacher/teacher-common::commonNav('teacher-approve')" class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                </script>
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="/teacherHome">主页</a>
+                    </li>
+
+                    <li class="active">学生管理</li>
+                </ul>
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        请求审批
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="table-header">
+                            请求列表
+                        </div>
+
+                        <div class="table-responsive">
+                            <table id="sample-table-2" class="table table-striped table-bparented table-hover">
+                                <thead>
+                                <tr>
+                                    <th>审批序号</th>
+                                    <th>学生学号</th>
+                                    <th>学生姓名</th>
+                                    <th>家长姓名</th>
+                                    <th>详情</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="a:${applications}">
+                                    <td th:text="${a.applicationId}"></td>
+                                    <td th:text="${a.studentId}"></td>
+                                    <td th:text="${a.studentName}"></td>
+                                    <td th:text="${a.parentName}"></td>
+                                    <td>
+                                        <button class="btn btn-xs btn-success" onclick="approve(this)">
+                                            <i class="icon-edit bigger-120"></i>审批
+                                        </button>
+
+                                        <button class="btn btn-xs btn-danger" onclick="reject(this)">
+                                            <i class="icon-edit bigger-120"></i>拒绝
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--页面具体内容-->
+        </div>
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+<div th:include="teacher/teacher-common::commonFooter"></div>
+<script type="text/javascript">
+    jQuery(function($) {
+        var oTable1 = $('#sample-table-2').dataTable( {
+            "aoColumns": [
+                null, null,{ "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+            ] } );
+    })
+</script>
+<script type="text/javascript">
+    function approve(obj){
+        var tr = obj.parentNode.parentNode;
+        var id = tr.childNodes[1].innerHTML;
+        $.ajax({
+            type: 'POST',
+            url: "/parent/agreeApplication",
+            data: {
+                applicationId: id
+            },
+            success: function (result) {
+                location.reload();
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    }
+    function reject(obj){
+        var tr = obj.parentNode.parentNode;
+        var id = tr.childNodes[1].innerHTML;
+        $.ajax({
+            type: 'POST',
+            url: "/parent/disagreeApplication",
+            data: {
+                applicationId: id
+            },
+            success: function (result) {
+                location.reload();
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    }
+</script>
+</body>
+</html>

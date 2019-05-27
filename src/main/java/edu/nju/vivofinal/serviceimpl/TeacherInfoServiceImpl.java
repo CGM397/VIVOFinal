@@ -1,6 +1,8 @@
 package edu.nju.vivofinal.serviceimpl;
 
+import edu.nju.vivofinal.dao.ApplicationDao;
 import edu.nju.vivofinal.dao.TeacherInfoDao;
+import edu.nju.vivofinal.model.ParentApplication;
 import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.TeacherInfoService;
@@ -15,6 +17,8 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 
     @Autowired
     private TeacherInfoDao teacherInfoDao;
+    @Autowired
+    private ApplicationDao applicationDao;
 
     @Override
     public void updateTeacherInfo(Teacher teacher) {
@@ -46,5 +50,10 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
             }
         }
         return res;
+    }
+
+    @Override
+    public List<ParentApplication> showAllApplications(String teacherMail) {
+        return applicationDao.findApplicationsByTeacherMail(teacherMail);
     }
 }
