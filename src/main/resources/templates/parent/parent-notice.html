@@ -81,5 +81,13 @@
     </a>
 </div>
 <div th:include="parent/parent-common::commonFooter"></div>
+<script type="text/javascript">
+    jQuery(function($) {
+        var oTable1 = $('#sample-table-2').dataTable( {
+            "aoColumns": [
+                null, null, { "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+            ] } );
+    })
+</script>
 </body>
 </html>

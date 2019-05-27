@@ -1,6 +1,8 @@
 package edu.nju.vivofinal.controller;
 
+import edu.nju.vivofinal.model.CommonNotice;
 import edu.nju.vivofinal.model.Parent;
+import edu.nju.vivofinal.model.SpecificNotice;
 import edu.nju.vivofinal.model.Teacher;
 import edu.nju.vivofinal.service.ParentInfoService;
 import edu.nju.vivofinal.service.StatisticsService;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class ParentIndexController {
@@ -60,8 +63,20 @@ public class ParentIndexController {
     }
 
     @RequestMapping("/parentNotice")
-    public String parentNotice(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+    public String parentNotice(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+        String email = (String)request.getSession(true).getAttribute("email");
+        List<CommonNotice> notices=parentInfoServiceImpl.showCommonNotices(email);
+        List<SpecificNotice> sNotices=parentInfoServiceImpl.showSpecificNotices(email);
+        for(SpecificNotice n:sNotices){
+            CommonNotice common=new CommonNotice();
+            common.setCommonNoticeId(n.getSpecificNoticeId());
+            common.setCommonNoticeTime(n.getSpecificNoticeTime());
+            common.setContext(n.getContext());
+            common.setTitle(n.getTitle());
+            common.setTeacherId(n.getTeacherId());
+            notices.add(common);
+        }
+        model.addAttribute("notices",notices);
         return "parent/parent-notice";
     }
 }
