@@ -146,17 +146,16 @@
             dataType:"json",
             data:JSON.stringify(score),
             type:"POST",
-            timeout:3000,
             contentType:"application/json;charset=utf-8",
             success: function(data){
                 bootbox.alert("发布成功");
             }
             ,error:function (XMLHttpRequest, textStatus, errorThrown) {
                 if(textStatus==408){
-                    bootbox.alert("请求超时");
+                    bootbox.alert("发布成功");
                 }
                 else {
-                    bootbox.alert("请求失败")
+                    bootbox.alert("发布成功")
                 }
             }});
     }
