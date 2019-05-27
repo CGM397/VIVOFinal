@@ -20,7 +20,35 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class BaseDaoImpl_ESTest{
 
+  @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      BaseDaoImpl baseDaoImpl0 = new BaseDaoImpl();
+      boolean boolean0 = baseDaoImpl0.update((Object) null);
+      assertFalse(boolean0);
+  }
 
+  @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      BaseDaoImpl baseDaoImpl0 = new BaseDaoImpl();
+      boolean boolean0 = baseDaoImpl0.save((Object) null);
+      assertFalse(boolean0);
+  }
+
+  @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      BaseDaoImpl baseDaoImpl0 = new BaseDaoImpl();
+      Class<Object> class0 = Object.class;
+      Object object0 = baseDaoImpl0.findById(class0, 1L);
+      assertNull(object0);
+  }
+
+  @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      BaseDaoImpl baseDaoImpl0 = new BaseDaoImpl();
+      Class<Object> class0 = Object.class;
+      boolean boolean0 = baseDaoImpl0.delete(class0, (-1081L));
+      assertFalse(boolean0);
+  }
 
   @Test(timeout = 4000)
   public void test4()  throws Throwable  {
@@ -38,5 +66,11 @@ public class BaseDaoImpl_ESTest{
       }
   }
 
-
+  @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      BaseDaoImpl baseDaoImpl0 = new BaseDaoImpl();
+      Class<String> class0 = String.class;
+      List list0 = baseDaoImpl0.getAllList(class0);
+      assertNull(list0);
+  }
 }

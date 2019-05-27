@@ -20,7 +20,7 @@ import java.util.List;
 @Controller
 public class ParentIndexController {
     @Autowired
-    private ParentInfoService parentInfoServiceImpl;
+    public ParentInfoService parentInfoServiceImpl;
     @Autowired
     private TeacherInfoService teacherInfoService;
 
