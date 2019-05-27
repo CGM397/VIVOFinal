@@ -6,6 +6,7 @@ import edu.nju.vivofinal.dao.TeacherInfoDao;
 import edu.nju.vivofinal.model.ParentApplication;
 import edu.nju.vivofinal.model.Parent;
 import edu.nju.vivofinal.model.Teacher;
+import edu.nju.vivofinal.service.NoticeService;
 import edu.nju.vivofinal.service.ParentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,8 @@ public class ParentInfoServiceImpl implements ParentInfoService {
     private TeacherInfoDao teacherInfoDao;
     @Autowired
     private ApplicationDao applicationDao;
+    @Autowired
+    private NoticeService noticeService;
 
     @Override
     public boolean updateParentInfo(Parent parent) {
@@ -86,16 +89,33 @@ public class ParentInfoServiceImpl implements ParentInfoService {
 
     @Override
     public boolean agreeApplication(long applicationId) {
+        boolean res;
         ParentApplication parentApplication = applicationDao.findApplicationById(applicationId);
         parentApplication.setChecked(true);
         applicationDao.updateApplication(parentApplication);
-        return bindToTeacher(parentApplication.getParentId(), parentApplication.getTeacherMail());
+        Teacher teacher = teacherInfoDao.findTeacherByMail(parentApplication.getTeacherMail());
+        long teacherId = teacher.getTeacherId();
+        String teacherName = teacher.getTeacherName();
+        String title = "加入班级申请结果";
+        String context = teacherName + "老师接受了您加入班级的申请。";
+        res = bindToTeacher(parentApplication.getParentId(), parentApplication.getTeacherMail()) &&
+                noticeService.sendOneSpecificNotice(teacherId, parentApplication.getParentId(), title, context);
+        return res;
     }
 
     @Override
     public boolean disagreeApplication(long applicationId) {
+        boolean res;
         ParentApplication parentApplication = applicationDao.findApplicationById(applicationId);
         parentApplication.setChecked(true);
-        return applicationDao.updateApplication(parentApplication);
+        long teacherId =
+                teacherInfoDao.findTeacherByMail(parentApplication.getTeacherMail()).getTeacherId();
+        String teacherName =
+                teacherInfoDao.findTeacherByMail(parentApplication.getTeacherMail()).getTeacherName();
+        String title = "加入班级申请结果";
+        String context = teacherName + "老师拒绝了您加入班级的申请。";
+        res = applicationDao.updateApplication(parentApplication) &&
+                noticeService.sendOneSpecificNotice(teacherId, parentApplication.getParentId(), title, context);
+        return res;
     }
 }
