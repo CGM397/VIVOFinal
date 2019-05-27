@@ -40,11 +40,6 @@ public class TeacherIndexController {
         return "teacher/teacher-info";
     }
 
-    @RequestMapping("/teacherNotice")
-    public String teacherNotice(){
-        return "teacher/teacher-notice";
-    }
-
     @RequestMapping("/teacherStudents")
     public String teacherStudents(HttpServletRequest request,Model model){
         String email=(String)request.getSession(true).getAttribute("email");
@@ -63,7 +58,10 @@ public class TeacherIndexController {
     }
 
     @RequestMapping("/teacherCommonNotice")
-    public String teacherCommonNotice(){
+    public String teacherCommonNotice(HttpServletRequest request, Model model){
+        String email=(String)request.getSession(true).getAttribute("email");
+        Teacher t=teacherInfoServiceImpl.findTeacherInfoByMail(email);
+        model.addAttribute("parents",t.getParents());
         return "teacher/teacher-commonNotice";
     }
 

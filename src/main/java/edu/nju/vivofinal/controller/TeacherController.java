@@ -51,8 +51,12 @@ public class TeacherController {
 
     @PostMapping(value = "/sendCommonNotice")
     @ResponseBody
-    public boolean sendCommonNotice(@RequestParam long teacherId, @RequestParam String title,
-                                    @RequestParam String context) {
+    public boolean sendCommonNotice(@RequestParam String title,
+                                    @RequestParam String context,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long teacherId =
+                teacherInfoService.findTeacherInfoByMail((String)session.getAttribute("email")).getTeacherId();
         return noticeService.sendCommonNotice(teacherId, title, context);
     }
 

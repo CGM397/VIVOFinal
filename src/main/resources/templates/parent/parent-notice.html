@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="parent/parent-common::commonHeader">
+</head>
+<body>
+<div th:include="parent/parent-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div th:include="parent/parent-common::commonNav('parent-common')" class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                </script>
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="/parentHome">主页</a>
+                    </li>
+
+                    <li class="active">通知查看</li>
+                </ul>
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        主页
+                    </h1>
+                </div><!-- /.page-header -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="table-header">
+                            通知
+                        </div>
+
+                        <div class="table-responsive">
+                            <table id="sample-table-2" class="table table-striped table-bparented table-hover">
+                                <thead>
+                                <tr>
+                                    <th>通知编号</th>
+                                    <th>通知日期</th>
+                                    <th>通知主题</th>
+                                    <th>通知内容</th>
+                                    <th>详情</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="notice:${notices}">
+                                    <td th:text="${notice.commonNoticeId}"></td>
+                                    <td th:text="${notice.commonNoticeTime}"></td>
+                                    <td th:text="${notice.title}"></td>
+                                    <td th:text="${notice.context}"></td>
+                                    <td>
+                                        <button class="btn btn-xs btn-info" onclick="checkDetail(this)">
+                                            <i class="icon-edit bigger-120"></i>详情
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+<div th:include="parent/parent-common::commonFooter"></div>
+</body>
+</html>

@@ -58,4 +58,10 @@ public class ParentIndexController {
         model.addAttribute("scores", studentScore.getScores());
         return "parent/parent-score";
     }
+
+    @RequestMapping("/parentNotice")
+    public String parentNotice(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        return "parent/parent-notice";
+    }
 }

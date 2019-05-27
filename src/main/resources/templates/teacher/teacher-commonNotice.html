@@ -1,10 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="teacher/teacher-common::commonHeader">
 </head>
 <body>
+<div th:include="teacher/teacher-common::commonNavBar" class="navbar navbar-default" id="navbar"></div>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
 
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div th:include="teacher/teacher-common::commonNav('teacher-commonNotice')" class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                </script>
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="/teacherHome">主页</a>
+                    </li>
+
+                    <li class="active">公告通知</li>
+                </ul>
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        公告通知
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <span style="font-size: 20px">标题： </span>
+                            <input id="title" type="text" class="form-control font-size=20px" placeholder="标题" >
+                        </div>
+                        <div class="form-group">
+                            <span style="font-size:15px">请输入公告内容:</span>
+                            <textarea class="form-control"  rows="10" id="content" placeholder="Default Text"></textarea>
+                        </div>
+                        <button class="btn-block btn btn-primary" onclick="submit()">确定提交</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+<div th:include="teacher/teacher-common::commonFooter"></div>
+<script th:src="@{static/js/jquery.validate.min.js}"></script>
+<script th:src="@{static/js/ace-elements.min.js}"></script>
+<script th:src="@{static/js/ace.min.js}"></script>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
+<script type="text/javascript">
+    function submit(){
+        var title=document.getElementById("title").innerText;
+        var content=document.getElementById("content").innerText;
+        $.ajax({
+            type: 'POST',
+            url: "/teacher/sendCommonNotice",
+            data:{
+                title:title,
+                context:content
+            },
+            success:function(result) {
+                window.location.reload();
+            },
+            error: function (result) {
+                bootbox.alert("error!");
+            }
+        });
+    }
+</script>
 </html>
